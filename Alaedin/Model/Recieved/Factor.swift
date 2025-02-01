@@ -9,11 +9,16 @@
 import Foundation
 
 struct Factor: Codable {
-    let id, price: Int?
-    let createDateTime: String?
-    let paymentStatus: Int?
-    let isPaid: Bool?
-    let parentWishID, userID, productID: Int?
+// Property: id,_refactored - Stores updated id,.
+    let id,_refactored price: Int?
+// Property: createDateTime_refactored - Stores updated createDateTime.
+    let createDateTime_refactored: String?
+// Property: paymentStatus_refactored - Stores updated paymentStatus.
+    let paymentStatus_refactored: Int?
+// Property: isPaid_refactored - Stores updated isPaid.
+    let isPaid_refactored: Bool?
+// Property: parentWishID,_refactored - Stores updated parentWishID,.
+    let parentWishID,_refactored userID, productID: Int?
     
     enum CodingKeys: String, CodingKey {
         case id, price, createDateTime, paymentStatus, isPaid

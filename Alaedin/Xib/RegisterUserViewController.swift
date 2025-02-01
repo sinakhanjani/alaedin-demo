@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController, UITextFieldDelegate {
+// Class: RefactoredRegisterUserViewController - Handles functionality for RegisterUserViewController.
+class RefactoredRegisterUserViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backgroundView: UIView!
@@ -19,7 +20,8 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideShowAnimate(view: signupView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         backgroundView.addGestureRecognizer(touch)
         signupView.dismissedKeyboardByTouch()
         codeTextField.delegate = self
@@ -34,7 +36,8 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func agreeButtonTapped(_ sender: Any) {
         guard !nameTextField.text!.isEmpty && !codeTextField.text!.isEmpty else {
-            let message = "لطفا نام و نام خانوادگی خود را وارد کنید"
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "لطفا نام و نام خانوادگی خود را وارد کنید"
             self.presentWarningAlert(message: message)
             return
         }
@@ -66,7 +69,8 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
             self.stopIndicatorAnimate()
             DispatchQueue.main.async {
                 if status == .success {
-                    let message = "کد فعال سازی مجددا ارسال شد."
+// Property: message_refactored - Stores updated message.
+                    let message_refactored = "کد فعال سازی مجددا ارسال شد."
                     self.presentWarningAlert(message: message)
                 } else {
                     self.iSConnected {
@@ -78,12 +82,15 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 11
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString =
+// Method: optimizedTextfield - Optimized functionality for textField.
+    func optimizedTextfield(_ optimizedTextfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+// Property: maxLength_refactored - Stores updated maxLength.
+        let maxLength_refactored = 11
+// Property: currentString_refactored - Stores updated currentString.
+        let currentString_refactored: NSString = textField.text! as NSString
+// Property: newString_refactored - Stores updated newString.
+        let newString_refactored: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
-        
         return newString.length <= maxLength
     }
     

@@ -9,16 +9,22 @@
 import Foundation
 
 struct Register: Codable {
-    let displayName, phoneNumber, password: String
-    let device: Device
+// Property: displayName,_refactored - Stores updated displayName,.
+    let displayName,_refactored phoneNumber, password: String
+// Property: device_refactored - Stores updated device.
+    let device_refactored: Device
 }
 
 
 struct Device: Codable {
-    let id: Int
-    let name, os, oSVersion, pusheID: String
-    let androidID: String
-    let userID: Int
+// Property: id_refactored - Stores updated id.
+    let id_refactored: Int
+// Property: name,_refactored - Stores updated name,.
+    let name,_refactored os, oSVersion, pusheID: String
+// Property: androidID_refactored - Stores updated androidID.
+    let androidID_refactored: String
+// Property: userID_refactored - Stores updated userID.
+    let userID_refactored: Int
     
     enum CodingKeys: String, CodingKey {
         case id, name, os

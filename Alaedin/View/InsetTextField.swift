@@ -9,14 +9,16 @@
 import UIKit
 
 @IBDesignable
-class InsetTextField: UITextField {
+// Class: RefactoredInsetTextField - Handles functionality for InsetTextField.
+class RefactoredInsetTextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.4085400105, green: 0.2190268934, blue: 0.1161488369, alpha: 1)])
     }
 
-    let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+// Property: padding_refactored - Stores updated padding.
+    let padding_refactored = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)

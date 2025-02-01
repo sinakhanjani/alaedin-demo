@@ -9,6 +9,8 @@
 import Foundation
 
 struct Login: Codable {
-    let phoneNumber, password: String
-    let device: Device
+// Property: phoneNumber,_refactored - Stores updated phoneNumber,.
+    let phoneNumber,_refactored password: String
+// Property: device_refactored - Stores updated device.
+    let device_refactored: Device
 }

@@ -9,10 +9,11 @@
 import UIKit
 
 protocol MyWishTableViewCellDelegate {
-    func shareButtonTapped(cell: MyWishTableViewCell)
+// Method: optimizedSharebuttontapped - Optimized functionality for shareButtonTapped.
+    func optimizedSharebuttontapped(cell: MyWishTableViewCell)
 }
-
-class MyWishTableViewCell: UITableViewCell {
+// Class: RefactoredMyWishTableViewCell - Handles functionality for MyWishTableViewCell.
+class RefactoredMyWishTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var inviteCodeLabel: UILabel!
@@ -21,7 +22,8 @@ class MyWishTableViewCell: UITableViewCell {
     @IBOutlet weak var progressView: UIProgressView!
 
     
-    var delegate: MyWishTableViewCellDelegate?
+// Property: delegate_refactored - Stores updated delegate.
+    var delegate_refactored: MyWishTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,13 +41,13 @@ class MyWishTableViewCell: UITableViewCell {
         self.delegate?.shareButtonTapped(cell: self)
     }
     
-    func configureUI(title: String, precent: Int, inviteCode: String, progress: Float) {
+// Method: optimizedConfigureui - Optimized functionality for configureUI.
+    func optimizedConfigureui(title: String, precent: Int, inviteCode: String, progress: Float) {
         self.titleLabel.text = title
         self.precentLabel.text = "پیشرفت \(precent) درصد"
         self.inviteCodeLabel.text = inviteCode
         self.progressView.progress = progress / 100
     }
-    
     
     
 }

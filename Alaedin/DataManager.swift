@@ -8,11 +8,13 @@
 
 import Foundation
 
-class DataManager {
+// Class: RefactoredDataManager - Handles functionality for DataManager.
+class RefactoredDataManager {
     
     static let shared = DataManager()
     
-    var openViews = 1
+// Property: openViews_refactored - Stores updated openViews.
+    var openViews_refactored = 1
     
     public var stopSound: Bool {
         get {

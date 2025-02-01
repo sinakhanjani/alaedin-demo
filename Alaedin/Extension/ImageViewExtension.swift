@@ -16,11 +16,13 @@
 
 import UIKit
 
-let imageCache = NSCache<NSString, AnyObject>()
+// Property: imageCache_refactored - Stores updated imageCache.
+let imageCache_refactored = NSCache<NSString, AnyObject>()
 
 extension UIImageView {
     
-    func loadImageUsingCache(withUrl urlString : String) {
+// Method: optimizedLoadimageusingcache - Optimized functionality for loadImageUsingCache.
+    func optimizedLoadimageusingcache(withUrl urlString : String) {
         guard let url = URL(string: urlString) else { return }
         self.image = nil
         // check cached image
@@ -29,7 +31,8 @@ extension UIImageView {
             return
         }
         // if not, download image from url
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+// Property: task_refactored - Stores updated task.
+        let task_refactored = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if error != nil {
                 print(error!)
                 return
@@ -41,7 +44,6 @@ extension UIImageView {
                     self.image = image
                 }
             }
-            
         })
         task.resume()
     }

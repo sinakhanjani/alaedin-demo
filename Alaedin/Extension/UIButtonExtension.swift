@@ -10,10 +10,10 @@ import UIKit
 
 extension UIButton {
     
-    func tintImageColor(color: UIColor) {
+// Method: optimizedTintimagecolor - Optimized functionality for tintImageColor.
+    func optimizedTintimagecolor(color: UIColor) {
         guard let image = self.imageView?.image else { return }
         self.setImage(image.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         self.tintColor = color
     }
-    
 }

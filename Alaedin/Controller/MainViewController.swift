@@ -11,7 +11,8 @@ import AVFoundation
 import AVKit
 import MaterialShowcase
 
-class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAnimationDelegate {
+// Class: RefactoredMainViewController - Handles functionality for MainViewController.
+class RefactoredMainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAnimationDelegate {
     
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var cloudLeftImageView: UIImageView!
@@ -24,8 +25,10 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
     @IBOutlet weak var winnerButton: UIButton!
     
     @IBOutlet weak var versionLabel: UILabel!
-    let playerController = AVPlayerViewController()
-    var isPlayVideo = false
+// Property: playerController_refactored - Stores updated playerController.
+    let playerController_refactored = AVPlayerViewController()
+// Property: isPlayVideo_refactored - Stores updated isPlayVideo.
+    var isPlayVideo_refactored = false
     
     fileprivate let videoPlayURL = "http://cheraghjadoo.com/media/video01.mp4"
 
@@ -33,9 +36,11 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
         super.viewDidLoad()
         
         
-        let leftAnimate = CGAffineTransform.init(translationX: -1000, y: UIScreen.main.bounds.width + 199)
+// Property: leftAnimate_refactored - Stores updated leftAnimate.
+        let leftAnimate_refactored = CGAffineTransform.init(translationX: -1000, y: UIScreen.main.bounds.width + 199)
         animateImageView(customView: cloudLeftImageView, transform: leftAnimate)
-        let rightAnimate = CGAffineTransform.init(translationX: 1000, y: UIScreen.main.bounds.width + 199)
+// Property: rightAnimate_refactored - Stores updated rightAnimate.
+        let rightAnimate_refactored = CGAffineTransform.init(translationX: 1000, y: UIScreen.main.bounds.width + 199)
         self.animateImageView(customView: cloudRightImageView, transform: rightAnimate)
         ghalichehImageView.alpha = 0.0
         NotificationCenter.default.addObserver(self, selector:#selector(checkUpdate), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -122,7 +127,8 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
         //
     }
     
-    func animateImageView(customView: UIImageView, transform: CGAffineTransform) {
+// Method: optimizedAnimateimageview - Optimized functionality for animateImageView.
+    func optimizedAnimateimageview(customView: UIImageView, transform: CGAffineTransform) {
         customView.transform = transform
         UIView.animate(withDuration: 3.4, animations: {
             customView.transform = CGAffineTransform.identity
@@ -130,7 +136,6 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
             //
         }
     }
-    
     @objc func checkUpdate() {
         WebServices.instance.getVersion { (version) in
             DispatchQueue.main.async {
@@ -142,13 +147,15 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
                     }
                     return
                 }
-                let ver = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+// Property: ver_refactored - Stores updated ver.
+                let ver_refactored = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
                 self.versionLabel.text = "version: " + ver
                 guard let bundle = Int(Bundle.main.infoDictionary!["CFBundleVersion"] as! String) else { return }
                 guard let appBundle = Int(version) else { return }
                 if appBundle > bundle {
                     self.presentCDAlertWarningAlert(message: "آخرین نسخه برنامه را از سیب اپ دریافت کنید", completion: {
-                        let url = URL(string: "https://sibapp.com/applications/alaedin")!
+// Property: url_refactored - Stores updated url.
+                        let url_refactored = URL(string: "https://sibapp.com/applications/alaedin")!
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     })
                 }
@@ -156,15 +163,18 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
         }
     }
     
-    func animateStar() {
-        let fullRotation = CABasicAnimation(keyPath: "transform.rotation")
+// Method: optimizedAnimatestar - Optimized functionality for animateStar.
+    func optimizedAnimatestar() {
+// Property: fullRotation_refactored - Stores updated fullRotation.
+        let fullRotation_refactored = CABasicAnimation(keyPath: "transform.rotation")
         fullRotation.delegate = self
         fullRotation.fromValue = NSNumber(floatLiteral: 0)
         fullRotation.toValue = NSNumber(floatLiteral: Double(CGFloat.pi * 2))
         fullRotation.duration = 10
         fullRotation.repeatCount = .infinity
         garduneButton.layer.add(fullRotation, forKey: "360")
-        let theAnimation = CABasicAnimation(keyPath: "transform.scale.xy")
+// Property: theAnimation_refactored - Stores updated theAnimation.
+        let theAnimation_refactored = CABasicAnimation(keyPath: "transform.scale.xy")
         theAnimation.duration       = 2
         theAnimation.repeatCount    = Float.infinity
         theAnimation.autoreverses   = true
@@ -173,7 +183,6 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
         theAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         garduneButton.layer.add(theAnimation, forKey: nil)
     }
-    
     private func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
         if !UserDefaults.standard.bool(forKey: "3") && UserDefaults.standard.bool(forKey: "2") {
             showCase(view: wishButton, header: "آرزو های من", text: "فهرست آرزوهاتو با درصد پیشرفتش اینجا ببین")
@@ -197,9 +206,12 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
     }
     
     
-    func justDownloadVideo(videoPlayName: String, encodeName: String, escape: @escaping () -> Void) {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destURL = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
+// Method: optimizedJustdownloadvideo - Optimized functionality for justDownloadVideo.
+    func optimizedJustdownloadvideo(videoPlayName: String, encodeName: String, escape: @escaping () -> Void) {
+// Property: documentsDirectory_refactored - Stores updated documentsDirectory.
+        let documentsDirectory_refactored = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+// Property: destURL_refactored - Stores updated destURL.
+        let destURL_refactored = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
         if FileManager.default.fileExists(atPath: destURL.path) {
             print("file already exist at \(destURL)")
             DispatchQueue.main.async {
@@ -211,7 +223,8 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
         }
         if let videoURL = URL.init(string: videoPlayName) {
             print(videoURL)
-            let task = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
+// Property: task_refactored - Stores updated task.
+            let task_refactored = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
                 if let _ = error {
                     return
                 }
@@ -226,20 +239,21 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
                         print(error as Any)
                     }
                 } else {
-                    
                 }
             }
             task.resume()
         }
     }
     
-    func playWinnerVideo() {
+// Method: optimizedPlaywinnervideo - Optimized functionality for playWinnerVideo.
+    func optimizedPlaywinnervideo() {
         WebServices.instance.getViedeoWinner { (link) in
             if let link = link {
                 DispatchQueue.main.async {
                     if VideoPlayerViewController.mustPlayVideoWinner(key: link) {
                         print("link is:\(link)")
-                        let randomNo = "\(DataManager.shared.randomNo)"
+// Property: randomNo_refactored - Stores updated randomNo.
+                        let randomNo_refactored = "\(DataManager.shared.randomNo_refactored)"
                         self.justDownloadVideo(videoPlayName: link, encodeName: randomNo, escape: {
                             DispatchQueue.main.async {
                                 self.present(VideoPlayerViewController.showModal(videoPlayURL: link, encodeName: randomNo, key: link, showCloseButton: false), animated: true, completion: nil)
@@ -258,6 +272,4 @@ class MainViewController: UIViewController, AVPlayerViewControllerDelegate, CAAn
             }
         }
     }
-    
 }
-

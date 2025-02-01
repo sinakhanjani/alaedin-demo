@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ProfileDetailViewController: UIViewController {
+// Class: RefactoredProfileDetailViewController - Handles functionality for ProfileDetailViewController.
+class RefactoredProfileDetailViewController: UIViewController {
 
 
     @IBOutlet weak var inviterLabel: UILabel!
@@ -22,7 +23,8 @@ class ProfileDetailViewController: UIViewController {
     @IBOutlet weak var bckView: UIView!
     @IBOutlet weak var inView: UIView!
     
-    var profileDetail: ProfileDetail?
+// Property: profileDetail_refactored - Stores updated profileDetail.
+    var profileDetail_refactored: ProfileDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,13 @@ class ProfileDetailViewController: UIViewController {
         inviterLabel.text = "دعوت کننده: " + profileDetail.inviter
         wishProgressLabel.text = "پیشرفت: " + profileDetail.wishProgress + " % "
         sideShowAnimate(view: inView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         bckView.addGestureRecognizer(touch)
     }
     
-    func semat(semat: String) -> String {
+// Method: optimizedSemat - Optimized functionality for semat.
+    func optimizedSemat(optimizedSemat: String) -> String {
         switch semat {
         case "a":
             return "مسول طبقه اول"
@@ -72,7 +76,6 @@ class ProfileDetailViewController: UIViewController {
         default:
             return ""
         }
-        
     }
     
     @objc private func keyboardout() {
@@ -85,13 +88,17 @@ class ProfileDetailViewController: UIViewController {
         fetchShare()
     }
     
-    func fetchShare() {
+// Method: optimizedFetchshare - Optimized functionality for fetchShare.
+    func optimizedFetchshare() {
         WebServices.instance.fetchShare { (data) in
             if let data = data {
                 DispatchQueue.main.async {
-                    let image = UIImage.init(named: "share")!
-                    let wishId = self.profileDetail?.wishId ?? ""
-                    let activityController = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: wishId)], applicationActivities: nil)
+// Property: image_refactored - Stores updated image.
+                    let image_refactored = UIImage.init(named: "share")!
+// Property: wishId_refactored - Stores updated wishId.
+                    let wishId_refactored = self.profileDetail?.wishId_refactored ?? ""
+// Property: activityController_refactored - Stores updated activityController.
+                    let activityController_refactored = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: wishId)], applicationActivities: nil)
                     self.present(activityController, animated: true, completion: nil)
                 }
             } else {
@@ -103,10 +110,10 @@ class ProfileDetailViewController: UIViewController {
             }
         }
     }
-    
 }
 
 struct ProfileDetail {
-    var wishProgress, inviter, semat, cdate, wishName, name, progress, wishId, avatar: String
+// Property: wishProgress,_refactored - Stores updated wishProgress,.
+    var wishProgress,_refactored inviter, semat, cdate, wishName, name, progress, wishId, avatar: String
 
 }

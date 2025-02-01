@@ -10,7 +10,8 @@ import UIKit
 
 
 
-class PmTableViewCell: UITableViewCell {
+// Class: RefactoredPmTableViewCell - Handles functionality for PmTableViewCell.
+class RefactoredPmTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pmLabel: UILabel!
 

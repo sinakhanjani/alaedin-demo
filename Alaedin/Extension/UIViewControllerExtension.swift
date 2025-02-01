@@ -14,31 +14,33 @@ import AVKit
 
 extension UIViewController {
     
-    func loginSituation() {
+// Method: optimizedLoginsituation - Optimized functionality for loginSituation.
+    func optimizedLoginsituation() {
         if Authorization.shared.isLoggedIn {
             //
         } else {
             //
         }
     }
-    
 }
 
 extension UIViewController {
     
-    func backBarButtonAttribute(color: UIColor, name: String) {
-        let backButton = UIBarButtonItem(title: name, style: UIBarButtonItem.Style.plain, target: self, action: nil)
+// Method: optimizedBackbarbuttonattribute - Optimized functionality for backBarButtonAttribute.
+    func optimizedBackbarbuttonattribute(color: UIColor, name: String) {
+// Property: backButton_refactored - Stores updated backButton.
+        let backButton_refactored = UIBarButtonItem(title: name, style: UIBarButtonItem.Style.plain, target: self, action: nil)
         backButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.persianFont(size: 15)], for: .normal)
         backButton.tintColor = color
         navigationItem.backBarButtonItem = backButton
     }
-    
 }
 
 // MENU ANIMATION
 extension UIViewController {
     
-    func showAnimate() {
+// Method: optimizedShowanimate - Optimized functionality for showAnimate.
+    func optimizedShowanimate() {
         self.view.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
         self.view.alpha = 0.0
         UIView.animate(withDuration: 1.4) {
@@ -46,8 +48,8 @@ extension UIViewController {
             self.view.transform = CGAffineTransform.identity
         }
     }
-    
-    func removeAnimate(boxView: UIView? = nil) {
+// Method: optimizedRemoveanimate - Optimized functionality for removeAnimate.
+    func optimizedRemoveanimate(boxView: UIView? = nil) {
         if let boxView = boxView {
             self.sideHideAnimate(view: boxView)
         }
@@ -60,15 +62,15 @@ extension UIViewController {
             }
         }
     }
-    
-    func sideShowAnimate(view: UIView) {
+// Method: optimizedSideshowanimate - Optimized functionality for sideShowAnimate.
+    func optimizedSideshowanimate(view: UIView) {
         view.transform = CGAffineTransform.init(translationX: UIScreen.main.bounds.width, y: 0)
         UIView.animate(withDuration: 1.4) {
             view.transform = CGAffineTransform.identity
         }
     }
-    
-    func sideHideAnimate(view: UIView) {
+// Method: optimizedSidehideanimate - Optimized functionality for sideHideAnimate.
+    func optimizedSidehideanimate(view: UIView) {
         UIView.animate(withDuration: 1.4, animations: {
             view.transform = CGAffineTransform.init(translationX: UIScreen.main.bounds.width, y: 0)
         }) { (finished) in
@@ -77,88 +79,98 @@ extension UIViewController {
             }
         }
     }
-    
 }
 
 extension UIViewController {
     
-    func presentMenuViewController() {
-        let vc = MenuViewController()
+// Method: optimizedPresentmenuviewcontroller - Optimized functionality for presentMenuViewController.
+    func optimizedPresentmenuviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = MenuViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentSignUpViewController() {
-        let vc = SignUpViewController()
+// Method: optimizedPresentsignupviewcontroller - Optimized functionality for presentSignUpViewController.
+    func optimizedPresentsignupviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = SignUpViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentConfirmViewController() {
-        let vc = ConfirmViewController()
+// Method: optimizedPresentconfirmviewcontroller - Optimized functionality for presentConfirmViewController.
+    func optimizedPresentconfirmviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = ConfirmViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentRegisterUserViewController() {
-        let vc = RegisterUserViewController()
+// Method: optimizedPresentregisteruserviewcontroller - Optimized functionality for presentRegisterUserViewController.
+    func optimizedPresentregisteruserviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = RegisterUserViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentProfileViewController() {
-        let vc = ProfileViewController()
+// Method: optimizedPresentprofileviewcontroller - Optimized functionality for presentProfileViewController.
+    func optimizedPresentprofileviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = ProfileViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentTicketViewController() {
-        let vc = TicketViewController()
+// Method: optimizedPresentticketviewcontroller - Optimized functionality for presentTicketViewController.
+    func optimizedPresentticketviewcontroller() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = TicketViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentWebViewController(url: URL) {
-        let vc = WebViewController()
+// Method: optimizedPresentwebviewcontroller - Optimized functionality for presentWebViewController.
+    func optimizedPresentwebviewcontroller(url: URL) {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = WebViewController()
         vc.url = url
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentGiftDetailViewController(product: Product) {
-        let vc = GiftDetailViewController()
+// Method: optimizedPresentgiftdetailviewcontroller - Optimized functionality for presentGiftDetailViewController.
+    func optimizedPresentgiftdetailviewcontroller(product: Product) {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = GiftDetailViewController()
         vc.product = product
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentProfileDetailViewController(profile: ProfileDetail) {
-        let vc = ProfileDetailViewController()
+// Method: optimizedPresentprofiledetailviewcontroller - Optimized functionality for presentProfileDetailViewController.
+    func optimizedPresentprofiledetailviewcontroller(profile: ProfileDetail) {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = ProfileDetailViewController()
         vc.profileDetail = profile
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func presentPrizeDetailViewController(prize: PrizeDetail) {
-        let vc = PrizeDetailViewController()
+// Method: optimizedPresentprizedetailviewcontroller - Optimized functionality for presentPrizeDetailViewController.
+    func optimizedPresentprizedetailviewcontroller(prize: PrizeDetail) {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = PrizeDetailViewController()
         vc.prizeDetail = prize
         self.addChild(vc)
         vc.view.frame = self.view.frame
@@ -166,79 +178,90 @@ extension UIViewController {
         vc.didMove(toParent: self)
     }
     
-    
 }
 
 extension UIViewController {
     
-    func startIndicatorAnimate() {
-        let vc = IndicatorViewController()
+// Method: optimizedStartindicatoranimate - Optimized functionality for startIndicatorAnimate.
+    func optimizedStartindicatoranimate() {
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = IndicatorViewController()
         self.addChild(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
     }
-    
-    func stopIndicatorAnimate() {
+// Method: optimizedStopindicatoranimate - Optimized functionality for stopIndicatorAnimate.
+    func optimizedStopindicatoranimate() {
         NotificationCenter.default.post(name: DISMISS_INDICATOR_VC_NOTIFY, object: nil)
     }
-    
 }
 
 extension UIViewController {
     
-    func presentWarningAlert(message: String) {
-        let alert = CDAlertView(title: "توجه", message: message, type: CDAlertViewType.notification)
+// Method: optimizedPresentwarningalert - Optimized functionality for presentWarningAlert.
+    func optimizedPresentwarningalert(message: String) {
+// Property: alert_refactored - Stores updated alert.
+        let alert_refactored = CDAlertView(title: "توجه", message: message, type: CDAlertViewType.notification)
         alert.titleFont = UIFont(name: MORVARID_FONT, size: 15)!
         alert.messageFont = UIFont(name: MORVARID_FONT, size: 13)!
-        let cancel = CDAlertViewAction(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white, handler: nil)
+// Property: cancel_refactored - Stores updated cancel.
+        let cancel_refactored = CDAlertViewAction(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white, handler: nil)
         alert.add(action: cancel)
         alert.show()
     }
-    
-    func presentCDAlertWarningAlert(message: String, completion: @escaping () -> Void) {
-        let alert = CDAlertView(title: "توجه", message: message, type: CDAlertViewType.notification)
+// Method: optimizedPresentcdalertwarningalert - Optimized functionality for presentCDAlertWarningAlert.
+    func optimizedPresentcdalertwarningalert(message: String, completion: @escaping () -> Void) {
+// Property: alert_refactored - Stores updated alert.
+        let alert_refactored = CDAlertView(title: "توجه", message: message, type: CDAlertViewType.notification)
         alert.titleFont = UIFont(name: MORVARID_FONT, size: 15)!
         alert.messageFont = UIFont(name: MORVARID_FONT, size: 13)!
-        let done = CDAlertViewAction.init(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (alert) -> Bool in
+// Property: done_refactored - Stores updated done.
+        let done_refactored = CDAlertViewAction.init(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (alert) -> Bool in
             completion()
             return true
         }
         alert.add(action: done)
         alert.show()
     }
-    
-    func iSConnected(completion: @escaping () -> Void) {
-        let alert = CDAlertView(title: "توجه", message: "ارتباط با سرور برقرار نشد !", type: CDAlertViewType.notification)
+// Method: optimizedIsconnected - Optimized functionality for iSConnected.
+    func optimizedIsconnected(completion: @escaping () -> Void) {
+// Property: alert_refactored - Stores updated alert.
+        let alert_refactored = CDAlertView(title: "توجه", message: "ارتباط با سرور برقرار نشد !", type: CDAlertViewType.notification)
         alert.titleFont = UIFont(name: MORVARID_FONT, size: 15)!
         alert.messageFont = UIFont(name: MORVARID_FONT, size: 13)!
-        let done = CDAlertViewAction.init(title: "تلاش مجدد", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (alert) -> Bool in
+// Property: done_refactored - Stores updated done.
+        let done_refactored = CDAlertViewAction.init(title: "تلاش مجدد", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (alert) -> Bool in
             completion()
             return true
         }
         alert.add(action: done)
         alert.show()
     }
-    
-    func phoneNumberCondition(phoneNumber number: String) -> Bool {
+// Method: optimizedPhonenumbercondition - Optimized functionality for phoneNumberCondition.
+    func optimizedPhonenumbercondition(phoneNumber number: String) -> Bool {
         guard !number.isEmpty else {
-            let message = "شماره همراه خالی میباشد !"
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "شماره همراه خالی میباشد !"
             presentWarningAlert(message: message)
             return false
         }
-        let startIndex = number.startIndex
-        let zero = number[startIndex]
+// Property: startIndex_refactored - Stores updated startIndex.
+        let startIndex_refactored = number.startIndex_refactored
+// Property: zero_refactored - Stores updated zero.
+        let zero_refactored = number[startIndex]
         guard zero == "0" else {
-            let message = "شماره همراه خود را با صفر وارد کنید !"
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "شماره همراه خود را با صفر وارد کنید !"
             presentWarningAlert(message: message)
             return false
         }
         guard number.count == 11 else {
-            let message = "شماره همراه میبایست یازده رقمی باشد !"
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "شماره همراه میبایست یازده رقمی باشد !"
             presentWarningAlert(message: message)
             return false
         }
-        
         return true
     }
     
@@ -249,10 +272,13 @@ extension UIViewController {
 }
 
 extension UIViewController: MaterialShowcaseDelegate {
-    func showCase(view: UIView, header: String, text: String) {
-        let showcase = MaterialShowcase()
+// Method: optimizedShowcase - Optimized functionality for showCase.
+    func optimizedShowcase(view: UIView, header: String, text: String) {
+// Property: showcase_refactored - Stores updated showcase.
+        let showcase_refactored = MaterialShowcase()
         showcase.setTargetView(view: view) // always required to set targetView
-        let customColor = UIColor(red: 23/255.0, green: 25/255.0, blue: 112/255.0, alpha: 1.0)
+// Property: customColor_refactored - Stores updated customColor.
+        let customColor_refactored = UIColor(red: 23/255.0, green: 25/255.0, blue: 112/255.0, alpha: 1.0)
         showcase.primaryTextAlignment = .right
         showcase.secondaryTextAlignment = .right
         showcase.targetHolderRadius = view.frame.height
@@ -267,6 +293,4 @@ extension UIViewController: MaterialShowcaseDelegate {
         })
         showcase.delegate = self
     }
-    
 }
-

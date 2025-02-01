@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Authorization {
+// Class: RefactoredAuthorization - Handles functionality for Authorization.
+class RefactoredAuthorization {
     
     static let shared = Authorization()
     

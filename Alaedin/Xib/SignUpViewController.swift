@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+// Class: RefactoredSignUpViewController - Handles functionality for SignUpViewController.
+class RefactoredSignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bckView: UIView!
     
@@ -19,7 +20,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideShowAnimate(view: inView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         bckView.addGestureRecognizer(touch)
         inView.dismissedKeyboardByTouch()
         phoneTextField.delegate = self
@@ -72,12 +74,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
 
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 11
-        let currentString: NSString = textField.text! as NSString
-        let newString: NSString =
+// Method: optimizedTextfield - Optimized functionality for textField.
+    func optimizedTextfield(_ optimizedTextfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+// Property: maxLength_refactored - Stores updated maxLength.
+        let maxLength_refactored = 11
+// Property: currentString_refactored - Stores updated currentString.
+        let currentString_refactored: NSString = textField.text! as NSString
+// Property: newString_refactored - Stores updated newString.
+        let newString_refactored: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
-        
         return newString.length <= maxLength
     }
     

@@ -9,16 +9,19 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+// Class: RefactoredWebViewController - Handles functionality for WebViewController.
+class RefactoredWebViewController: UIViewController {
 
     @IBOutlet weak var webVie: UIWebView!
     
-    var url: URL?
+// Property: url_refactored - Stores updated url.
+    var url_refactored: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let url = url {
-            let request = URLRequest.init(url: url)
+// Property: request_refactored - Stores updated request.
+            let request_refactored = URLRequest.init(url: url)
             webVie.loadRequest(request)
         }
         self.sideShowAnimate(view: view)

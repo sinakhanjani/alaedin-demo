@@ -9,7 +9,8 @@
 import UIKit
 
 @IBDesignable
-class RoundedView: UIView {
+// Class: RefactoredRoundedView - Handles functionality for RoundedView.
+class RefactoredRoundedView: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 10.0 {
         didSet {
@@ -33,12 +34,12 @@ class RoundedView: UIView {
         self.setupView()
     }
     
-    func setupView() {
+// Method: optimizedSetupview - Optimized functionality for setupView.
+    func optimizedSetupview() {
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor.cgColor
     }
-    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupView()

@@ -9,10 +9,14 @@
 import Foundation
 
 struct SendCreateFactor: Codable {
-    let id, price: Int?
-    let parentWishID, discountCode: String?
-    let userID, toolId: String?
-    let productID: Int?
+// Property: id,_refactored - Stores updated id,.
+    let id,_refactored price: Int?
+// Property: parentWishID,_refactored - Stores updated parentWishID,.
+    let parentWishID,_refactored discountCode: String?
+// Property: userID,_refactored - Stores updated userID,.
+    let userID,_refactored toolId: String?
+// Property: productID_refactored - Stores updated productID.
+    let productID_refactored: Int?
     
     enum CodingKeys: String, CodingKey {
         case id, price, toolId, discountCode

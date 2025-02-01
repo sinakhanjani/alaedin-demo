@@ -8,11 +8,13 @@
 
 import UIKit
 
-class PmViewController: UIViewController {
+// Class: RefactoredPmViewController - Handles functionality for PmViewController.
+class RefactoredPmViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var messages = [Message]()
+// Property: messages_refactored - Stores updated messages.
+    var messages_refactored = [Message]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,8 @@ class PmViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func getMessages() {
+// Method: optimizedGetmessages - Optimized functionality for getMessages.
+    func optimizedGetmessages() {
         self.startIndicatorAnimate()
         WebServices.instance.getMessages(start: 0, end: 100) { (messages) in
             self.stopIndicatorAnimate()
@@ -38,7 +41,6 @@ class PmViewController: UIViewController {
             }
         }
     }
-
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -47,26 +49,30 @@ class PmViewController: UIViewController {
 
 
 extension PmViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+// Method: optimizedNumberofsections - Optimized functionality for numberOfSections.
+    func optimizedNumberofsections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainCellIdentifier.pmCell, for: indexPath) as! PmTableViewCell
-        let message = messages[indexPath.row]
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+// Property: cell_refactored - Stores updated cell.
+        let cell_refactored = tableView.dequeueReusableCell(withIdentifier: MainCellIdentifier.pmCell, for: indexPath) as! PmTableViewCell
+// Property: message_refactored - Stores updated message.
+        let message_refactored = message_refactoreds[indexPath.row]
         cell.pmLabel.text = message.content
-        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let translate3DTransform = CATransform3DTranslate(CATransform3DIdentity, -500, -400, 0)
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+// Property: translate3DTransform_refactored - Stores updated translate3DTransform.
+        let translate3DTransform_refactored = CATransform3DTranslate(CATransform3DIdentity, -500, -400, 0)
         cell.layer.transform = translate3DTransform
         UIView.animate(withDuration: 1, animations: { cell.layer.transform = CATransform3DIdentity })
     }
-    
     
 }

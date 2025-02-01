@@ -9,11 +9,16 @@
 import Foundation
 
 struct Category: Codable {
-    let id: Int
-    let name, description: String?
-    let avatarURL: String?
-    let isDeleted: Bool?
-    let productsCount: Int?
+// Property: id_refactored - Stores updated id.
+    let id_refactored: Int
+// Property: name,_refactored - Stores updated name,.
+    let name,_refactored description: String?
+// Property: avatarURL_refactored - Stores updated avatarURL.
+    let avatarURL_refactored: String?
+// Property: isDeleted_refactored - Stores updated isDeleted.
+    let isDeleted_refactored: Bool?
+// Property: productsCount_refactored - Stores updated productsCount.
+    let productsCount_refactored: Int?
     
     enum CodingKeys: String, CodingKey {
         case id, name, description

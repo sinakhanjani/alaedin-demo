@@ -8,7 +8,8 @@
 
 import UIKit
 
-class WishesCollectionViewCell: UICollectionViewCell {
+// Class: RefactoredWishesCollectionViewCell - Handles functionality for WishesCollectionViewCell.
+class RefactoredWishesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var prizeImageView: UIImageView!
     @IBOutlet weak var prizeNameLabel: UILabel!
     @IBOutlet weak var priceToPayLabel: UILabel!

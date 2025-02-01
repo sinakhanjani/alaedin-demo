@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TicketViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+// Class: RefactoredTicketViewController - Handles functionality for TicketViewController.
+class RefactoredTicketViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextField: InsetTextField!
@@ -24,17 +25,18 @@ class TicketViewController: UIViewController, UITextViewDelegate, UITextFieldDel
          sideShowAnimate(view: signupView)
     }
 
-    func textViewDidBeginEditing(_ textView: UITextView) {
+// Method: optimizedTextviewdidbeginediting - Optimized functionality for textViewDidBeginEditing.
+    func optimizedTextviewdidbeginediting(_ textView: UITextView) {
         textView.text = ""
     }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+// Method: optimizedTextfielddidbeginediting - Optimized functionality for textFieldDidBeginEditing.
+    func optimizedTextfielddidbeginediting(_ textField: UITextField) {
         textField.text = ""
     }
-    
     @IBAction func agreeButtonTapped(_ sender: Any) {
         guard titleTextField.text != "عنوان" && !contentTextView.text.isEmpty else {
-            let message = "اطلاعات را کامل پر کنید."
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "اطلاعات را کامل پر کنید."
             self.presentWarningAlert(message: message)
             return
         }
@@ -42,7 +44,8 @@ class TicketViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         sendTicket()
       }
     
-    func sendTicket() {
+// Method: optimizedSendticket - Optimized functionality for sendTicket.
+    func optimizedSendticket() {
         self.startIndicatorAnimate()
         WebServices.instance.sentTicketRequest(title: titleTextField.text!, content: contentTextView.text!) { (status) in
             if status == .success {
@@ -59,7 +62,6 @@ class TicketViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             }
         }
     }
-    
     @IBAction func backButtonTapped(_ sender: Any) {
         self.view.endEditing(true)
         self.view.superview?.removeFromSuperview()

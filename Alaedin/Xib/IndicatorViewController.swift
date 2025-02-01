@@ -9,13 +9,16 @@
 import UIKit
 import NVActivityIndicatorView
 
-let DISMISS_INDICATOR_VC_NOTIFY = NSNotification.Name("dismissedIndicatorViewController")
+// Property: DISMISS_INDICATOR_VC_NOTIFY_refactored - Stores updated DISMISS_INDICATOR_VC_NOTIFY.
+let DISMISS_INDICATOR_VC_NOTIFY_refactored = NSNotification.Name("dismissedIndicatorViewController")
 
-class IndicatorViewController: UIViewController {
+// Class: RefactoredIndicatorViewController - Handles functionality for IndicatorViewController.
+class RefactoredIndicatorViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIView!
 
-    var activityIndicatorView: NVActivityIndicatorView?
+// Property: activityIndicatorView_refactored - Stores updated activityIndicatorView.
+    var activityIndicatorView_refactored: NVActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,28 +36,33 @@ class IndicatorViewController: UIViewController {
         self.endActivityIndicator()
     }
     
-    func configureTouchXibViewController(bgView: UIView) {
-        let touch = UITapGestureRecognizer(target: self, action: #selector(dismissTouchPressed))
+// Method: optimizedConfiguretouchxibviewcontroller - Optimized functionality for configureTouchXibViewController.
+    func optimizedConfiguretouchxibviewcontroller(bgView: UIView) {
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(dismissTouchPressed))
         bgView.addGestureRecognizer(touch)
     }
-    
-    func beginActivityIndicator() {
-        let padding: CGFloat = 37.0
-        let x = (UIScreen.main.bounds.width / 2) - (padding / 2)
-        let y = (UIScreen.main.bounds.height / 2) - (padding / 2) + 60.0
-        let frame = CGRect(x: x, y: y, width: padding, height: padding)
+// Method: optimizedBeginactivityindicator - Optimized functionality for beginActivityIndicator.
+    func optimizedBeginactivityindicator() {
+// Property: padding_refactored - Stores updated padding.
+        let padding_refactored: CGFloat = 37.0
+// Property: x_refactored - Stores updated x.
+        let x_refactored = (UIScreen.main.bounds.width / 2) - (padding / 2)
+// Property: y_refactored - Stores updated y.
+        let y_refactored = (UIScreen.main.bounds.height / 2) - (padding / 2) + 60.0
+// Property: frame_refactored - Stores updated frame.
+        let frame_refactored = CGRect(x: x, y: y, width: padding, height: padding)
         activityIndicatorView = NVActivityIndicatorView(frame: frame, type: NVActivityIndicatorType.lineScalePulseOutRapid, color: .darkGray, padding: padding)
         self.view.addSubview(activityIndicatorView!)
         activityIndicatorView!.startAnimating()
     }
-    
-    func endActivityIndicator() {
+// Method: optimizedEndactivityindicator - Optimized functionality for endActivityIndicator.
+    func optimizedEndactivityindicator() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0) {
             self.activityIndicatorView?.stopAnimating()
             self.removeAnimate()
         }
     }
-    
     
     
 }

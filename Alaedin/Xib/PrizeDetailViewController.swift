@@ -9,10 +9,11 @@
 import UIKit
 
 protocol PrizeDetailViewControllerDelegate {
-    func cancelButtonTapped()
+// Method: optimizedCancelbuttontapped - Optimized functionality for cancelButtonTapped.
+    func optimizedCancelbuttontapped()
 }
-
-class PrizeDetailViewController: UIViewController {
+// Class: RefactoredPrizeDetailViewController - Handles functionality for PrizeDetailViewController.
+class RefactoredPrizeDetailViewController: UIViewController {
 
     @IBOutlet weak var prizeNameLabel: UILabel!
     @IBOutlet weak var prizePercentLabel: UILabel!
@@ -22,8 +23,10 @@ class PrizeDetailViewController: UIViewController {
     @IBOutlet weak var bckView: UIView!
     @IBOutlet weak var inView: UIView!
     
-    var prizeDetail: PrizeDetail?
-    var delegate: PrizeDetailViewControllerDelegate?
+// Property: prizeDetail_refactored - Stores updated prizeDetail.
+    var prizeDetail_refactored: PrizeDetail?
+// Property: delegate_refactored - Stores updated delegate.
+    var delegate_refactored: PrizeDetailViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,8 @@ class PrizeDetailViewController: UIViewController {
         prizePercentLabel.text = "پیشرفت: " + prizeDetail.percent
         cancelPriceLabel.text = "مبلغ دریافتی" + prizeDetail.priceToPay.seperateByCama + "تومان"
         sideShowAnimate(view: inView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         bckView.addGestureRecognizer(touch)
         
     }
@@ -47,17 +51,22 @@ class PrizeDetailViewController: UIViewController {
     }
     
     @IBAction func invitationButtonPressed(_ sender: Any) {
-        let image = UIImage.init(named: "share")!
+// Property: image_refactored - Stores updated image.
+        let image_refactored = UIImage.init(named: "share")!
         fetchShare()
     }
     
-    func fetchShare() {
+// Method: optimizedFetchshare - Optimized functionality for fetchShare.
+    func optimizedFetchshare() {
         WebServices.instance.fetchShare { (data) in
             if let data = data {
                 DispatchQueue.main.async {
-                    let image = UIImage.init(named: "share")!
-                    let wishId = self.prizeDetail?.wishId ?? ""
-                    let activityController = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: wishId)], applicationActivities: nil)
+// Property: image_refactored - Stores updated image.
+                    let image_refactored = UIImage.init(named: "share")!
+// Property: wishId_refactored - Stores updated wishId.
+                    let wishId_refactored = self.prizeDetail?.wishId_refactored ?? ""
+// Property: activityController_refactored - Stores updated activityController.
+                    let activityController_refactored = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: wishId)], applicationActivities: nil)
                     self.present(activityController, animated: true, completion: nil)
                 }
             } else {
@@ -69,12 +78,12 @@ class PrizeDetailViewController: UIViewController {
             }
         }
     }
-    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         cancelWih()
     }
     
-    func cancelWih() {
+// Method: optimizedCancelwih - Optimized functionality for cancelWih.
+    func optimizedCancelwih() {
         guard let prizeDetail = prizeDetail else { return }
         WebServices.instance.cancelWish(wishId: prizeDetail.wishId) { (cancel) in
             DispatchQueue.main.async {
@@ -95,12 +104,15 @@ class PrizeDetailViewController: UIViewController {
             }
         }
     }
-    
 }
 
 struct PrizeDetail {
-    var status: Int
-    var percent, name: String
-    var priceToPay: String
-    var wishId: String
+// Property: status_refactored - Stores updated status.
+    var status_refactored: Int
+// Property: percent,_refactored - Stores updated percent,.
+    var percent,_refactored name: String
+// Property: priceToPay_refactored - Stores updated priceToPay.
+    var priceToPay_refactored: String
+// Property: wishId_refactored - Stores updated wishId.
+    var wishId_refactored: String
 }

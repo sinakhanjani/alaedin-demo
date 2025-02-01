@@ -8,7 +8,8 @@
 
 import UIKit
 
-class GiftDetailViewController: UIViewController {
+// Class: RefactoredGiftDetailViewController - Handles functionality for GiftDetailViewController.
+class RefactoredGiftDetailViewController: UIViewController {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -18,17 +19,20 @@ class GiftDetailViewController: UIViewController {
     @IBOutlet weak var bckView: UIView!
     @IBOutlet weak var inView: UIView!
 
-    var product: Product? 
+// Property: product_refactored - Stores updated product.
+    var product_refactored: Product? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sideShowAnimate(view: inView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         bckView.addGestureRecognizer(touch)
         self.productImageView.loadImageUsingCache(withUrl: product?.avatarURL ?? "")
         self.productNameLabel.text = product?.name
         self.productPriceLabel.text = "ارزش کالا: " + "\(product!.price!)".seperateByCama
-        let price = "\(product!.discount! + product!.priceToWish!)"
+// Property: price_refactored - Stores updated price.
+        let price_refactored = "\(product!.discount! + product!.price_refactoredToWish!)"
         self.productPriceToPayLabel.text = "حق عضویت: " + price.seperateByCama
         self.productDescriptionLabel.text = product?.description
     }

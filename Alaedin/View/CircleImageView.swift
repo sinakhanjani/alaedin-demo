@@ -8,7 +8,8 @@
 import UIKit
 
 @IBDesignable
-class CircleImageView: UIImageView {
+// Class: RefactoredCircleImageView - Handles functionality for CircleImageView.
+class RefactoredCircleImageView: UIImageView {
     
     @IBInspectable var cornerRadius : CGFloat = 0.0 {
         didSet {
@@ -34,7 +35,8 @@ class CircleImageView: UIImageView {
         }
     }
     
-    func applyCornerRadius() {
+// Method: optimizedApplycornerradius - Optimized functionality for applyCornerRadius.
+    func optimizedApplycornerradius() {
         if (self.circular) {
             self.layer.cornerRadius = self.bounds.size.height / 2
             self.layer.masksToBounds = true
@@ -47,7 +49,6 @@ class CircleImageView: UIImageView {
             self.layer.borderWidth = CGFloat(self.borderWidth)
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.applyCornerRadius()

@@ -9,7 +9,8 @@
 import UIKit
 import CDAlertView
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+// Class: RefactoredProfileViewController - Handles functionality for ProfileViewController.
+class RefactoredProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundView: UIView!
@@ -18,13 +19,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var meliCodeTextField: InsetTextField!
     @IBOutlet weak var shabaTextField: InsetTextField!
 
-    let imagePicker = UIImagePickerController()
-    var profile: Profile?
+// Property: imagePicker_refactored - Stores updated imagePicker.
+    let imagePicker_refactored = UIImagePickerController()
+// Property: profile_refactored - Stores updated profile.
+    var profile_refactored: Profile?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         sideShowAnimate(view: signupView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         backgroundView.addGestureRecognizer(touch)
         signupView.dismissedKeyboardByTouch()
         imageView.tintImageColor(color: #colorLiteral(red: 0.9858238101, green: 0.7216893435, blue: 0.2683053613, alpha: 1))
@@ -32,7 +36,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         fetchPOrofile()
     }
     
-    func fetchPOrofile() {
+// Method: optimizedFetchporofile - Optimized functionality for fetchPOrofile.
+    func optimizedFetchporofile() {
         WebServices.instance.fetchUserProfile { (profile) in
             if let profile = profile {
                 DispatchQueue.main.async {
@@ -53,7 +58,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-
     @objc private func keyboardout() {
         self.view.endEditing(true)
         self.view.superview?.removeFromSuperview()
@@ -83,28 +87,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Method: optimizedImagepickercontroller - Optimized functionality for imagePickerController.
+    func optimizedImagepickercontroller(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             imageView.image = image
             dismiss(animated: true, completion: nil)
         }
     }
-
     private func answserButton(title1: String, title2: String) {
-        let alert = CDAlertView(title: "توجه !", message: "لطفا تصویر خود را انتخاب کنید", type: CDAlertViewType.notification)
+// Property: alert_refactored - Stores updated alert.
+        let alert_refactored = CDAlertView(title: "توجه !", message: "لطفا تصویر خود را انتخاب کنید", type: CDAlertViewType.notification)
         alert.titleFont = UIFont(name: MORVARID_FONT, size: 14)!
         alert.messageFont = UIFont(name: MORVARID_FONT, size: 14)!
-        let done1 = CDAlertViewAction(title: title2, font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
+// Property: done1_refactored - Stores updated done1.
+        let done1_refactored = CDAlertViewAction(title: title2, font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
             self.imagePicker.sourceType = .photoLibrary
             self.present(self.imagePicker, animated: true, completion: nil)
             return true
         }
-        let done2 = CDAlertViewAction(title: title1, font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
+// Property: done2_refactored - Stores updated done2.
+        let done2_refactored = CDAlertViewAction(title: title1, font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
             self.imagePicker.sourceType = .camera
             self.present(self.imagePicker, animated: true, completion: nil)
             return true
         }
-        let cancel = CDAlertViewAction(title: "هیچکدام", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white, handler: nil)
+// Property: cancel_refactored - Stores updated cancel.
+        let cancel_refactored = CDAlertViewAction(title: "هیچکدام", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white, handler: nil)
         alert.add(action: done1)
         alert.add(action: done2)
         alert.add(action: cancel)
@@ -112,10 +120,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     private func profileUpdateWarning() {
-        let alert = CDAlertView(title: "توجه !", message: DefaultMessages.profileUpdate, type: CDAlertViewType.notification)
+// Property: alert_refactored - Stores updated alert.
+        let alert_refactored = CDAlertView(title: "توجه !", message: DefaultMessages.profileUpdate, type: CDAlertViewType.notification)
         alert.titleFont = UIFont(name: MORVARID_FONT, size: 14)!
         alert.messageFont = UIFont(name: MORVARID_FONT, size: 14)!
-        let done1 = CDAlertViewAction(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
+// Property: done1_refactored - Stores updated done1.
+        let done1_refactored = CDAlertViewAction(title: "باشه", font: UIFont(name: MORVARID_FONT, size: 13)!, textColor: UIColor.darkGray, backgroundColor: .white) { (action) -> Bool in
             self.view.superview?.removeFromSuperview()
             return true
         }

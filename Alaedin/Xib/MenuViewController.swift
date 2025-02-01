@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+// Class: RefactoredMenuViewController - Handles functionality for MenuViewController.
+class RefactoredMenuViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet var imgsView: [UIImageView]!
@@ -44,7 +45,8 @@ class MenuViewController: UIViewController {
         if Authorization.shared.isLoggedIn {
             logoutStackView.isHidden = false
             
-            let loginTitle = "ویرایش \(DataManager.shared.userInformation?.displayname ?? "")"
+// Property: loginTitle_refactored - Stores updated loginTitle.
+            let loginTitle_refactored = "ویرایش \(DataManager.shared.userInformation?.displayname ?? "")"
             loginButton.setTitle(loginTitle, for: .normal)
         } else {
             logoutStackView.isHidden = true
@@ -113,7 +115,8 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func telegramButtonTapped(_ sender: Any) {
-        let openURL = URL(string: "https://t.me/joinchat/AAAAAEhr1dZfa3uWTfn_qg")
+// Property: openURL_refactored - Stores updated openURL.
+        let openURL_refactored = URL(string: "https://t.me/joinchat/AAAAAEhr1dZfa3uWTfn_qg")
         if let openURL = openURL {
             DispatchQueue.main.async {
                 UIApplication.shared.open(openURL, options: [:], completionHandler: nil)
@@ -122,7 +125,8 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func instagramButtonTapped(_ sender: Any) {
-        let openURL = URL(string: "http://instagram.com/cheragh_jadoo")
+// Property: openURL_refactored - Stores updated openURL.
+        let openURL_refactored = URL(string: "http://instagram.com/cheragh_jadoo")
         if let openURL = openURL {
             DispatchQueue.main.async {
                 UIApplication.shared.open(openURL, options: [:], completionHandler: nil)
@@ -130,23 +134,24 @@ class MenuViewController: UIViewController {
         }
     }
     
-    func disableSound() {
+// Method: optimizedDisablesound - Optimized functionality for disableSound.
+    func optimizedDisablesound() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.stopSound()
         }
     }
-    
-    func enableSound() {
+// Method: optimizedEnablesound - Optimized functionality for enableSound.
+    func optimizedEnablesound() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.enableSound()
         }
     }
-    
-    func configureTouchXibViewController(bgView: UIView) {
-        let touch = UITapGestureRecognizer(target: self, action: #selector(dismissTouchPressed))
+// Method: optimizedConfiguretouchxibviewcontroller - Optimized functionality for configureTouchXibViewController.
+    func optimizedConfiguretouchxibviewcontroller(bgView: UIView) {
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(dismissTouchPressed))
         bgView.addGestureRecognizer(touch)
     }
-
     
     
     

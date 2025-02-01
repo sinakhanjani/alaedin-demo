@@ -15,16 +15,21 @@ import FirebaseInstanceID
 import AVKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+// Class: RefactoredAppDelegate - Handles functionality for AppDelegate.
+class RefactoredAppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     fileprivate let viewActionIdentifier = "VIEW_IDENTIFIER"
     fileprivate let newsCategoryIdentifier = "NEWS_CATEGORY"
     
-    var window: UIWindow?
-    var audioPlayer: AVAudioPlayer?
-    var fcmToken = ""
+// Property: window_refactored - Stores updated window.
+    var window_refactored: UIWindow?
+// Property: audioPlayer_refactored - Stores updated audioPlayer.
+    var audioPlayer_refactored: AVAudioPlayer?
+// Property: fcmToken_refactored - Stores updated fcmToken.
+    var fcmToken_refactored = ""
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(_ optimizedApplication: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        playSound()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
@@ -38,12 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UN
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             Messaging.messaging().delegate = self
-            let autOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+// Property: autOptions_refactored - Stores updated autOptions.
+            let autOptions_refactored: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(options: autOptions) { _,_ in
                 //
             }
         } else {
-            let settings = UIUserNotificationSettings.init(types: [.alert, .badge, .sound], categories: nil)
+// Property: settings_refactored - Stores updated settings.
+            let settings_refactored = UIUserNotificationSettings.init(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
@@ -54,32 +61,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UN
         if !DataManager.shared.firstTimeRulesAndPolicy {
             UserDefaults.standard.setValuesForKeys(["1":false,"2":false,"3":false,"4":false,"5":false,"6":false])
             DataManager.shared.firstTimeRulesAndPolicy = true
-            
         }
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+// Method: optimizedApplicationwillresignactive - Optimized functionality for applicationWillResignActive.
+    func optimizedApplicationwillresignactive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
+// Method: optimizedApplicationdidenterbackground - Optimized functionality for applicationDidEnterBackground.
+    func optimizedApplicationdidenterbackground(_ application: UIApplication) {
         NotificationCenter.default.post(name: PUASE_VIDEO_NOTIFY, object: nil)
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
+// Method: optimizedApplicationwillenterforeground - Optimized functionality for applicationWillEnterForeground.
+    func optimizedApplicationwillenterforeground(_ application: UIApplication) {
         NotificationCenter.default.post(name: RESUME_VIDEO_NOTIFY, object: nil)
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
+// Method: optimizedApplicationdidbecomeactive - Optimized functionality for applicationDidBecomeActive.
+    func optimizedApplicationdidbecomeactive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
+// Method: optimizedApplicationwillterminate - Optimized functionality for applicationWillTerminate.
+    func optimizedApplicationwillterminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
     // MARK - SOUNDS
     private func playSound() {
         guard !DataManager.shared.stopSound else { return }
@@ -126,52 +132,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UN
     
     // FCM
     // Receive Background Notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+// Method: optimizedUsernotificationcenter - Optimized functionality for userNotificationCenter.
+    func optimizedUsernotificationcenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("Background Notification Received.")
-        
         completionHandler()
     }
     
     // Receive Foreground Notification
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+// Method: optimizedUsernotificationcenter - Optimized functionality for userNotificationCenter.
+    func optimizedUsernotificationcenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Foreground Notification Received.")
         completionHandler(.sound)
     }
     
-    
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+// Method: optimizedMessaging - Optimized functionality for messaging.
+    func optimizedMessaging(_ optimizedMessaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token = \(fcmToken)")
         self.fcmToken = fcmToken
         // TOKEN IS HERE ***
         Messaging.messaging().subscribe(toTopic: "school")
     }
-    
     // The callback to handle data message received via FCM for devices running iOS 10 or above.
-    func application(received remoteMessage: MessagingRemoteMessage) {
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(received remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
     }
-    
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(optimizedApplication: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         Messaging.messaging().apnsToken = deviceToken as Data
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(_ optimizedApplication: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         Messaging.messaging().subscribe(toTopic: "school")
     }
-    
-    func registerForPushNotifications() {
+// Method: optimizedRegisterforpushnotifications - Optimized functionality for registerForPushNotifications.
+    func optimizedRegisterforpushnotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             print("Permission \(granted).")
             guard granted else { return }
-            let viewAction = UNNotificationAction.init(identifier: self.viewActionIdentifier, title: "View", options: [.foreground])
-            let newsCategory = UNNotificationCategory.init(identifier: self.newsCategoryIdentifier, actions: [viewAction], intentIdentifiers: [], options: [])
+// Property: viewAction_refactored - Stores updated viewAction.
+            let viewAction_refactored = UNNotificationAction.init(identifier: self.viewAction_refactoredIdentifier, title: "View", options: [.foreground])
+// Property: newsCategory_refactored - Stores updated newsCategory.
+            let newsCategory_refactored = UNNotificationCategory.init(identifier: self.newsCategory_refactoredIdentifier, actions: [viewAction], intentIdentifiers: [], options: [])
             UNUserNotificationCenter.current().setNotificationCategories([newsCategory])
             self.getNotificationSettings()
         }
     }
     
-    
-    func getNotificationSettings() {
+// Method: optimizedGetnotificationsettings - Optimized functionality for getNotificationSettings.
+    func optimizedGetnotificationsettings() {
         UNUserNotificationCenter.current().getNotificationSettings() { settings in
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.sync {
@@ -179,29 +188,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, UN
             }
         }
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data -> String in
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(_ optimizedApplication: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+// Property: tokenParts_refactored - Stores updated tokenParts.
+        let tokenParts_refactored = deviceToken.map { data -> String in
             return String.init(format: "%02.2hhx", data)
         }
-        let token = tokenParts.joined()
+// Property: token_refactored - Stores updated token.
+        let token_refactored = token_refactoredParts.joined()
         print("*** DeviceToken is \(token) ***")
     }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(_ optimizedApplication: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register \(error).")
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let _ = userInfo["aps"] as! [String : AnyObject]
+// Method: optimizedApplication - Optimized functionality for application.
+    func optimizedApplication(_ optimizedApplication: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+// Property: __refactored - Stores updated _.
+        let __refactored = userInfo["aps"] as! [String : AnyObject]
         completionHandler(UIBackgroundFetchResult.noData)
     }
-    
-    func fbHandler() {
+// Method: optimizedFbhandler - Optimized functionality for fbHandler.
+    func optimizedFbhandler() {
         Messaging.messaging().shouldEstablishDirectChannel = true
     }
     
     
-    
 }
-

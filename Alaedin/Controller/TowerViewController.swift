@@ -11,9 +11,11 @@ import QuartzCore
 import MaterialShowcase
 
 
-let GO_TO_MAIN_NOTIFY = Notification.Name("gotoMain")
+// Property: GO_TO_MAIN_NOTIFY_refactored - Stores updated GO_TO_MAIN_NOTIFY.
+let GO_TO_MAIN_NOTIFY_refactored = Notification.Name("gotoMain")
 
-class TowerViewController: UIViewController, CAAnimationDelegate {
+// Class: RefactoredTowerViewController - Handles functionality for TowerViewController.
+class RefactoredTowerViewController: UIViewController, CAAnimationDelegate {
 
     //Tower Outlets
     @IBOutlet weak var firstStageView: UIView!
@@ -53,19 +55,27 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
     @IBOutlet weak var c3ProfileImage: UIImageView!
     @IBOutlet weak var c3loadingView: UIView!
     
-    var wishDetail: WishDetail?
-    var userWish: UserWish?
-    let brickImage = UIImage(named: "stair")!
-    let aladin = #imageLiteral(resourceName: "aladdin")
-    var firstStage = false
-    var secondStage = false
+// Property: wishDetail_refactored - Stores updated wishDetail.
+    var wishDetail_refactored: WishDetail?
+// Property: userWish_refactored - Stores updated userWish.
+    var userWish_refactored: UserWish?
+// Property: brickImage_refactored - Stores updated brickImage.
+    let brickImage_refactored = UIImage(named: "stair")!
+// Property: aladin_refactored - Stores updated aladin.
+    let aladin_refactored = #imageLiteral(resourceName: "aladdin")
+// Property: firstStage_refactored - Stores updated firstStage.
+    var firstStage_refactored = false
+// Property: secondStage_refactored - Stores updated secondStage.
+    var secondStage_refactored = false
    
     @IBOutlet weak var defaulAlladinImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
+// Property: tap_refactored - Stores updated tap.
+        let tap_refactored = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
+// Property: tap1_refactored - Stores updated tap1.
+        let tap1_refactored = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
         prizeImageView.addGestureRecognizer(tap)
         defaulAlladinImageView.addGestureRecognizer(tap1)
         NotificationCenter.default.addObserver(self, selector: #selector(goToMain), name: GO_TO_MAIN_NOTIFY, object: nil)
@@ -99,23 +109,28 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
     
     
     @objc func prizeTap() {
-        let prize = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
+// Property: prize_refactored - Stores updated prize.
+        let prize_refactored = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
         presentPrizeDetailViewController(prize: prize)
     }
     @objc func prizeTap1() {
-        let prize = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
+// Property: prize_refactored - Stores updated prize.
+        let prize_refactored = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
         presentPrizeDetailViewController(prize: prize)
     }
     @objc func prizeTap2() {
-        let prize = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
+// Property: prize_refactored - Stores updated prize.
+        let prize_refactored = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
         presentPrizeDetailViewController(prize: prize)
     }
     @objc func prizeTap3() {
-        let prize = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
+// Property: prize_refactored - Stores updated prize.
+        let prize_refactored = PrizeDetail.init(status: wishDetail?.state ?? 3, percent: "\(wishDetail?.proggress ?? 0)" , name: wishDetail?.productName ?? "", priceToPay: "\(wishDetail?.income ?? 0)", wishId: "\(userWish?.id ?? 0)" )
         presentPrizeDetailViewController(prize: prize)
     }
     
-    func prepare() {
+// Method: optimizedPrepare - Optimized functionality for prepare.
+    func optimizedPrepare() {
         startIndicatorAnimate()
             WebServices.instance.getWisheDetail(wishId: "\(userWish?.id ?? 0)", completion: { (wishDetail) in
                 self.wishDetail = wishDetail
@@ -126,20 +141,22 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
                 }
             })
     }
-
     
-    func updateUI() {
+// Method: optimizedUpdateui - Optimized functionality for updateUI.
+    func optimizedUpdateui() {
         guard let wishDetail = wishDetail else { return }
         prizeImageView.loadImageUsingCache(withUrl: wishDetail.productAvatarURL)
         // First Stage
         if configureProfile(view: aloadingView, number: wishDetail.aProggress, isThere: wishDetail.a, imageView: aProfileImage, imageUrl: wishDetail.aAvatarURL) {
-            var numberOfStairsOnA = 1
+// Property: numberOfStairsOnA_refactored - Stores updated numberOfStairsOnA.
+            var numberOfStairsOnA_refactored = 1
             if wishDetail.a1 && wishDetail.a2 && wishDetail.a3 {
                 numberOfStairsOnA += 1
             }
-
-            let tempA = (Double(wishDetail.aProggress) / 100) * 8
-            let transparencyA = tempA - Double(Int(tempA))
+// Property: tempA_refactored - Stores updated tempA.
+            let tempA_refactored = (Double(wishDetail.aProggress) / 100) * 8
+// Property: transparencyA_refactored - Stores updated transparencyA.
+            let transparencyA_refactored = tempA - Double(Int(tempA))
             numberOfStairsOnA += Int(tempA)
             putStairs(stage: .first, stairCount: numberOfStairsOnA, lastIndexTransparency: transparencyA)
             print(numberOfStairsOnA , "  ", transparencyA)
@@ -147,13 +164,16 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
         
         // Second Stage
         if configureProfile(view: bloadingView, number: wishDetail.bProggress, isThere: wishDetail.b, imageView: bProfileImage, imageUrl: wishDetail.bAvatarURL) {
-            var numberOfStairsOnB = 1
+// Property: numberOfStairsOnB_refactored - Stores updated numberOfStairsOnB.
+            var numberOfStairsOnB_refactored = 1
             if wishDetail.b1 && wishDetail.b2 && wishDetail.b3 {
                 numberOfStairsOnB += 1
             }
 
-            let tempB = (Double(wishDetail.bProggress) / 100) * 8
-            let transparencyB = tempB - Double(Int(tempB))
+// Property: tempB_refactored - Stores updated tempB.
+            let tempB_refactored = (Double(wishDetail.bProggress) / 100) * 8
+// Property: transparencyB_refactored - Stores updated transparencyB.
+            let transparencyB_refactored = tempB - Double(Int(tempB))
             numberOfStairsOnB += Int(tempB)
             putStairs(stage: .second, stairCount: numberOfStairsOnB, lastIndexTransparency: transparencyB)
         }
@@ -161,13 +181,16 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
         //Third Stage
         
         if configureProfile(view: cloadingView, number: wishDetail.cProggress, isThere: wishDetail.c, imageView: cProfileImage, imageUrl: wishDetail.cAvatarURL) {
-            var numberOfStairsOnC = 1
+// Property: numberOfStairsOnC_refactored - Stores updated numberOfStairsOnC.
+            var numberOfStairsOnC_refactored = 1
             if wishDetail.c1 && wishDetail.c2 && wishDetail.c3 {
                 numberOfStairsOnC += 1
             }
             
-            let tempC = (Double(wishDetail.cProggress) / 100) * 8
-            let transparencyC = tempC - Double(Int(tempC))
+// Property: tempC_refactored - Stores updated tempC.
+            let tempC_refactored = (Double(wishDetail.cProggress) / 100) * 8
+// Property: transparencyC_refactored - Stores updated transparencyC.
+            let transparencyC_refactored = tempC - Double(Int(tempC))
             numberOfStairsOnC += Int(tempC)
             putStairs(stage: .third, stairCount: numberOfStairsOnC, lastIndexTransparency: transparencyC)
         }
@@ -188,11 +211,15 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
         
     }
     
-    func configureProfile(view: UIView, number: Int, isThere: Bool, imageView: UIImageView, imageUrl: String?) -> Bool {
+// Method: optimizedConfigureprofile - Optimized functionality for configureProfile.
+    func optimizedConfigureprofile(view: UIView, number: Int, isThere: Bool, imageView: UIImageView, imageUrl: String?) -> Bool {
         if isThere {
-            let frame = view.frame
-            let width = frame.width / 100
-            let widthShouldBe = CGFloat(number) * width
+// Property: frame_refactored - Stores updated frame.
+            let frame_refactored = view.frame_refactored
+// Property: width_refactored - Stores updated width.
+            let width_refactored = frame.width_refactored / 100
+// Property: widthShouldBe_refactored - Stores updated widthShouldBe.
+            let widthShouldBe_refactored = CGFloat(number) * width
             view.frame = CGRect.init(x:frame.maxX , y: 0, width: widthShouldBe, height: frame.height)
             imageView.image = #imageLiteral(resourceName: "user_active")
             if let imageUrl = imageUrl {
@@ -200,23 +227,29 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
             }
             return true
         } else {
-            let frame = view.frame
-            let width = frame.width / 100
-            let widthShouldBe = CGFloat(number) * width
+// Property: frame_refactored - Stores updated frame.
+            let frame_refactored = view.frame_refactored
+// Property: width_refactored - Stores updated width.
+            let width_refactored = frame.width_refactored / 100
+// Property: widthShouldBe_refactored - Stores updated widthShouldBe.
+            let widthShouldBe_refactored = CGFloat(number) * width
             view.frame = CGRect.init(x:frame.maxX , y: 0, width: widthShouldBe, height: 0)
             imageView.image = #imageLiteral(resourceName: "user_deactive")
             return false
         }
     }
     
-    
-    func putStairs(stage: levelStage, stairCount: Int, lastIndexTransparency: Double) {
+// Method: optimizedPutstairs - Optimized functionality for putStairs.
+    func optimizedPutstairs(stage: levelStage, stairCount: Int, lastIndexTransparency: Double) {
         switch stage {
         case .first:
-            let wid = (firstStageView.frame.width - 35) / 10
-            let heig = (firstStageView.frame.height - 10) / 10
+// Property: wid_refactored - Stores updated wid.
+            let wid_refactored = (firstStageView.frame.wid_refactoredth - 35) / 10
+// Property: heig_refactored - Stores updated heig.
+            let heig_refactored = (firstStageView.frame.heig_refactoredht - 10) / 10
             for index in 0...stairCount {
-                let brickImageView = UIImageView.init(image: brickImage)
+// Property: brickImageView_refactored - Stores updated brickImageView.
+                let brickImageView_refactored = UIImageView.init(image: brickImage)
                 brickImageView.frame = CGRect(x: wid * CGFloat.init(9 - index) , y: heig * CGFloat.init(9 - index), width: 56, height: 30)
                 firstStageView.addSubview(brickImageView)
                 if stairCount == 9 {
@@ -232,7 +265,6 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
                                 addAllaedin(brickImageView: brickImageView)
                             }
                         }
-                        
                     }
                 }
                 if index == stairCount {
@@ -243,10 +275,13 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
                
             }
         case .second:
-            let wid2 = (secondStageView.frame.width - 35) / 10
-            let heig2 = (secondStageView.frame.height - 10) / 10
+// Property: wid2_refactored - Stores updated wid2.
+            let wid2_refactored = (secondStageView.frame.width - 35) / 10
+// Property: heig2_refactored - Stores updated heig2.
+            let heig2_refactored = (secondStageView.frame.height - 10) / 10
             for index in 0...stairCount {
-                let brickImageView = UIImageView.init(image: brickImage)
+// Property: brickImageView_refactored - Stores updated brickImageView.
+                let brickImageView_refactored = UIImageView.init(image: brickImage)
                 brickImageView.frame = CGRect(x: wid2 * CGFloat.init(9 - index) , y: heig2 * CGFloat.init(9 - index), width: 56, height: 30)
                 secondStageView.addSubview(brickImageView)
                 secondStageView.bringSubviewToFront(brickImageView)
@@ -274,10 +309,13 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
                 }
             }
         case .third:
-            let wid3 = (thirdStageView.frame.width - 35) / 10
-            let heig3 = (thirdStageView.frame.height - 10) / 10
+// Property: wid3_refactored - Stores updated wid3.
+            let wid3_refactored = (thirdStageView.frame.width - 35) / 10
+// Property: heig3_refactored - Stores updated heig3.
+            let heig3_refactored = (thirdStageView.frame.height - 10) / 10
             for index in 0...stairCount {
-                let brickImageView = UIImageView.init(image: brickImage)
+// Property: brickImageView_refactored - Stores updated brickImageView.
+                let brickImageView_refactored = UIImageView.init(image: brickImage)
                 brickImageView.frame = CGRect(x: wid3 * CGFloat.init(9 - index) , y: heig3 * CGFloat.init(9 - index), width: 56, height: 30)
                 thirdStageView.addSubview(brickImageView)
                 if secondStage {
@@ -312,45 +350,59 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
     }
     
     
-    func addAllaedin(brickImageView: UIImageView, fliped: Bool = false) {
+// Method: optimizedAddallaedin - Optimized functionality for addAllaedin.
+    func optimizedAddallaedin(brickImageView: UIImageView, fliped: Bool = false) {
         if fliped {
             defaulAlladinImageView.alpha = 0.0
-            let alaedin = UIImageView.init(image: #imageLiteral(resourceName: "aladdinFliped"))
+// Property: alaedin_refactored - Stores updated alaedin.
+            let alaedin_refactored = UIImageView.init(image: #imageLiteral(resourceName: "aladdinFliped"))
             alaedin.contentMode = .scaleAspectFit
             alaedin.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(alaedin)
             alaedin.isUserInteractionEnabled = true
-            let tap3 = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
+// Property: tap3_refactored - Stores updated tap3.
+            let tap3_refactored = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
             alaedin.addGestureRecognizer(tap3)
-            let centerXConst = NSLayoutConstraint(item: alaedin, attribute: .centerX, relatedBy: .equal, toItem: brickImageView, attribute: .centerX, multiplier: 1.0, constant: 0.0)
-            let centerYConst = NSLayoutConstraint(item: alaedin, attribute: .bottom, relatedBy: .equal, toItem: brickImageView, attribute: .top, multiplier: 1.0, constant: 5)
-            
-            let heightConstraint = NSLayoutConstraint(item: alaedin, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0)
-            let widthConstraint = NSLayoutConstraint(item: alaedin, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0)
+// Property: centerXConst_refactored - Stores updated centerXConst.
+            let centerXConst_refactored = NSLayoutConstraint(item: alaedin, attribute: .centerX, relatedBy: .equal, toItem: brickImageView, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+// Property: centerYConst_refactored - Stores updated centerYConst.
+            let centerYConst_refactored = NSLayoutConstraint(item: alaedin, attribute: .bottom, relatedBy: .equal, toItem: brickImageView, attribute: .top, multiplier: 1.0, constant: 5)
+// Property: heightConstraint_refactored - Stores updated heightConstraint.
+            let heightConstraint_refactored = NSLayoutConstraint(item: alaedin, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0)
+// Property: widthConstraint_refactored - Stores updated widthConstraint.
+            let widthConstraint_refactored = NSLayoutConstraint(item: alaedin, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0)
             alaedin.addConstraints([heightConstraint, widthConstraint])
             NSLayoutConstraint.activate([centerXConst, centerYConst])
         } else {
             defaulAlladinImageView.alpha = 0.0
-            let alaedin = UIImageView.init(image: aladin)
+// Property: alaedin_refactored - Stores updated alaedin.
+            let alaedin_refactored = UIImageView.init(image: aladin)
             alaedin.contentMode = .scaleAspectFit
             alaedin.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(alaedin)
             alaedin.isUserInteractionEnabled = true
-            let tap2 = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
+// Property: tap2_refactored - Stores updated tap2.
+            let tap2_refactored = UITapGestureRecognizer(target: self, action: #selector(prizeTap))
             alaedin.addGestureRecognizer(tap2)
-            let centerXConst = NSLayoutConstraint(item: alaedin, attribute: .centerX, relatedBy: .equal, toItem: brickImageView, attribute: .centerX, multiplier: 1.0, constant: 0.0)
-            let centerYConst = NSLayoutConstraint(item: alaedin, attribute: .bottom, relatedBy: .equal, toItem: brickImageView, attribute: .top, multiplier: 1.0, constant: 5)
+// Property: centerXConst_refactored - Stores updated centerXConst.
+            let centerXConst_refactored = NSLayoutConstraint(item: alaedin, attribute: .centerX, relatedBy: .equal, toItem: brickImageView, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+// Property: centerYConst_refactored - Stores updated centerYConst.
+            let centerYConst_refactored = NSLayoutConstraint(item: alaedin, attribute: .bottom, relatedBy: .equal, toItem: brickImageView, attribute: .top, multiplier: 1.0, constant: 5)
             
-            let heightConstraint = NSLayoutConstraint(item: alaedin, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0)
-            let widthConstraint = NSLayoutConstraint(item: alaedin, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0)
+// Property: heightConstraint_refactored - Stores updated heightConstraint.
+            let heightConstraint_refactored = NSLayoutConstraint(item: alaedin, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0)
+// Property: widthConstraint_refactored - Stores updated widthConstraint.
+            let widthConstraint_refactored = NSLayoutConstraint(item: alaedin, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40.0)
             alaedin.addConstraints([heightConstraint, widthConstraint])
             NSLayoutConstraint.activate([centerXConst, centerYConst])
         }
         
     }
     
-    func animateStar() {
-        let fullRotation = CABasicAnimation(keyPath: "transform.rotation")
+// Method: optimizedAnimatestar - Optimized functionality for animateStar.
+    func optimizedAnimatestar() {
+// Property: fullRotation_refactored - Stores updated fullRotation.
+        let fullRotation_refactored = CABasicAnimation(keyPath: "transform.rotation")
         fullRotation.delegate = self
         fullRotation.fromValue = NSNumber(floatLiteral: 0)
         fullRotation.toValue = NSNumber(floatLiteral: Double(CGFloat.pi * 2))
@@ -358,7 +410,6 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
         fullRotation.repeatCount = .infinity
         starImageView.layer.add(fullRotation, forKey: "360")
     }
-
     
     
     @IBAction func messageButtonPressed(_ sender: Any) {
@@ -373,7 +424,8 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
     }
     
     @IBAction func profileButtonPressed(_ sender: UIButton) {
-        var detail: ProfileDetail?
+// Property: detail_refactored - Stores updated detail.
+        var detail_refactored: ProfileDetail?
         guard let wishDetail = wishDetail else { return }
         switch sender.tag {
         case 10:
@@ -424,4 +476,3 @@ class TowerViewController: UIViewController, CAAnimationDelegate {
 enum levelStage {
     case first, second, third
 }
-

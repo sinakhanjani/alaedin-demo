@@ -9,5 +9,6 @@
 import Foundation
 
 struct Version: Codable {
-    let android, ios: String?
+// Property: android,_refactored - Stores updated android,.
+    let android,_refactored ios: String?
 }

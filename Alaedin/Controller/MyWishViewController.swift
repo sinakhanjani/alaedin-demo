@@ -9,30 +9,35 @@
 import UIKit
 import AVKit
 
-class MyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPlayerViewControllerDelegate {
+// Class: RefactoredMyWishViewController - Handles functionality for MyWishViewController.
+class RefactoredMyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPlayerViewControllerDelegate {
     
 
     
-    func shareButtonTapped(cell: MyWishTableViewCell) {
+// Method: optimizedSharebuttontapped - Optimized functionality for shareButtonTapped.
+    func optimizedSharebuttontapped(cell: MyWishTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            let wishid = userWishes?[indexPath.row].id ?? 0
+// Property: wishid_refactored - Stores updated wishid.
+            let wishid_refactored = userWishes?[indexPath.row].id ?? 0
             WebServices.instance.fetchShare { (data) in
                 if let data = data {
                     DispatchQueue.main.async {
-                        let image = UIImage.init(named: "share")!
-                        let activityController = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: "\(wishid)")], applicationActivities: nil)
+// Property: image_refactored - Stores updated image.
+                        let image_refactored = UIImage.init(named: "share")!
+// Property: activityController_refactored - Stores updated activityController.
+                        let activityController_refactored = UIActivityViewController(activityItems: [image,data.caption.replacingOccurrences(of: "@wishid", with: "\(wishid)")], applicationActivities: nil)
                         self.present(activityController, animated: true, completion: nil)
                     }
                 }
             }
         }
     }
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var magicButton: UIButton!
     
     
-    var userWishes: UserWishes?
+// Property: userWishes_refactored - Stores updated userWishes.
+    var userWishes_refactored: UserWishes?
 
     
     override func viewDidLoad() {
@@ -46,7 +51,8 @@ class MyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPla
 
     }
     
-    func requestGetUserWish() {
+// Method: optimizedRequestgetuserwish - Optimized functionality for requestGetUserWish.
+    func optimizedRequestgetuserwish() {
         self.startIndicatorAnimate()
         WebServices.instance.getUserWishes { (userWishes) in
             self.stopIndicatorAnimate()
@@ -61,7 +67,6 @@ class MyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPla
                         self.requestGetUserWish()
                     }
                 }
-
             }
         }
     }
@@ -97,8 +102,10 @@ class MyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPla
         if segue.identifier == "toTower" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 if let userWishes = self.userWishes {
-                    let userWish = userWishes[indexPath.row]
-                    let destinaton = segue.destination as! TowerViewController
+// Property: userWish_refactored - Stores updated userWish.
+                    let userWish_refactored = userWish_refactoredes[indexPath.row]
+// Property: destinaton_refactored - Stores updated destinaton.
+                    let destinaton_refactored = segue.destination as! TowerViewController
                     destinaton.userWish = userWish
                 }
             }
@@ -156,37 +163,41 @@ class MyWishViewController: UIViewController, MyWishTableViewCellDelegate, AVPla
 }
 
 extension MyWishViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+// Method: optimizedNumberofsections - Optimized functionality for numberOfSections.
+    func optimizedNumberofsections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.userWishes?.count ?? 0
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainCellIdentifier.myWishCell, for: indexPath) as! MyWishTableViewCell
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+// Property: cell_refactored - Stores updated cell.
+        let cell_refactored = tableView.dequeueReusableCell(withIdentifier: MainCellIdentifier.myWishCell, for: indexPath) as! MyWishTableViewCell
         cell.delegate = self
         if let userWishes = userWishes {
-            let wish = userWishes[indexPath.row]
+// Property: wish_refactored - Stores updated wish.
+            let wish_refactored = userWishes[indexPath.row]
             print(wish)
             cell.configureUI(title: wish.productName ?? "", precent: wish.proggress ?? 0, inviteCode: "\(wish.id ?? 0)", progress: Float(wish.proggress ?? 0))
             if let image = wish.productAvatarURL {
                 cell.iconImageView.loadImageUsingCache(withUrl: image)
             }
         }
-        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let translate3DTransform = CATransform3DTranslate(CATransform3DIdentity, -500, -400, 0)
+// Method: optimizedTableview - Optimized functionality for tableView.
+    func optimizedTableview(_ optimizedTableview: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+// Property: translate3DTransform_refactored - Stores updated translate3DTransform.
+        let translate3DTransform_refactored = CATransform3DTranslate(CATransform3DIdentity, -500, -400, 0)
         cell.layer.transform = translate3DTransform
         UIView.animate(withDuration: 1, animations: { cell.layer.transform = CATransform3DIdentity })
     }
-    
     
 }

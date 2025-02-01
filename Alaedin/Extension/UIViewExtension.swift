@@ -11,7 +11,8 @@ import UIKit
 extension UIView {
     
     public func dismissedKeyboardByTouch() {
-        let touch = UITapGestureRecognizer(target: self, action: #selector(removeKeyboard(_:)))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(removeKeyboard(_:)))
         self.addGestureRecognizer(touch)
     }
     
@@ -24,16 +25,21 @@ extension UIView {
 
 extension UIView {
     
-    func bindToKeyboard() {
+// Method: optimizedBindtokeyboard - Optimized functionality for bindToKeyboard.
+    func optimizedBindtokeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(UIView.keyboardWillChange(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
     @objc func keyboardWillChange(_ notification: NSNotification) {
-        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
-        let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
-        let curFrame = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let targetFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let deltaY = targetFrame.origin.y - curFrame.origin.y
+// Property: duration_refactored - Stores updated duration.
+        let duration_refactored = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+// Property: curve_refactored - Stores updated curve.
+        let curve_refactored = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+// Property: curFrame_refactored - Stores updated curFrame.
+        let curFrame_refactored = (notification.userInfo![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+// Property: targetFrame_refactored - Stores updated targetFrame.
+        let targetFrame_refactored = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+// Property: deltaY_refactored - Stores updated deltaY.
+        let deltaY_refactored = targetFrame.origin.y - curFrame.origin.y
         
         UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
             self.frame.origin.y += deltaY
@@ -43,4 +49,3 @@ extension UIView {
         })
     }
 }
-

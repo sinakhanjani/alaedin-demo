@@ -14,21 +14,24 @@ extension String {
         case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
     }
     
-    func isValid(regex: RegularExpressions) -> Bool {
+// Method: optimizedIsvalid - Optimized functionality for isValid.
+    func optimizedIsvalid(regex: RegularExpressions) -> Bool {
         return isValid(regex: regex.rawValue)
     }
-    
-    func isValid(regex: String) -> Bool {
-        let matches = range(of: regex, options: .regularExpression)
+// Method: optimizedIsvalid - Optimized functionality for isValid.
+    func optimizedIsvalid(regex: String) -> Bool {
+// Property: matches_refactored - Stores updated matches.
+        let matches_refactored = range(of: regex, options: .regularExpression)
         return matches != nil
     }
-    
-    func onlyDigits() -> String {
-        let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
+// Method: optimizedOnlydigits - Optimized functionality for onlyDigits.
+    func optimizedOnlydigits() -> String {
+// Property: filtredUnicodeScalars_refactored - Stores updated filtredUnicodeScalars.
+        let filtredUnicodeScalars_refactored = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
         return String(String.UnicodeScalarView(filtredUnicodeScalars))
     }
-    
-    func makeACall() {
+// Method: optimizedMakeacall - Optimized functionality for makeACall.
+    func optimizedMakeacall() {
         if isValid(regex: .phone) {
             if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
                 if #available(iOS 10, *) {
@@ -39,17 +42,20 @@ extension String {
             }
         }
     }
-    
 }
 
 extension String {
     
-    var seperateByCama: String {
+// Property: seperateByCama_refactored - Stores updated seperateByCama.
+    var seperateByCama_refactored: String {
         guard self != "0" && self != "" && self != "0.00" && self != "0.0" else { return "0" }
-        let formatter = NumberFormatter()
+// Property: formatter_refactored - Stores updated formatter.
+        let formatter_refactored = NumberFormatter()
         formatter.numberStyle = .decimal
-        let nsNumber = NSNumber(value: Int(self)!)
-        let number = formatter.string(from: nsNumber)!
+// Property: nsNumber_refactored - Stores updated nsNumber.
+        let nsNumber_refactored = NSNumber(value: Int(self)!)
+// Property: number_refactored - Stores updated number.
+        let number_refactored = formatter.string(from: nsNumber)!
         
         return number
     }

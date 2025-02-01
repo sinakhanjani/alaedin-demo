@@ -9,11 +9,16 @@
 import Foundation
 
 struct Ticket: Codable {
-    let id: Int
-    let action, title, content: String
-    let userID: Int
-    let externalLink: String
-    let messageState, messageType: Int
+// Property: id_refactored - Stores updated id.
+    let id_refactored: Int
+// Property: action,_refactored - Stores updated action,.
+    let action,_refactored title, content: String
+// Property: userID_refactored - Stores updated userID.
+    let userID_refactored: Int
+// Property: externalLink_refactored - Stores updated externalLink.
+    let externalLink_refactored: String
+// Property: messageState,_refactored - Stores updated messageState,.
+    let messageState,_refactored messageType: Int
     
     enum CodingKeys: String, CodingKey {
         case id, action, title, content

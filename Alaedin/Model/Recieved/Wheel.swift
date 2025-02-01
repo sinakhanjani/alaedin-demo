@@ -11,9 +11,12 @@ import Foundation
 typealias Wheels = [Wheel]
 
 struct Wheel: Codable {
-    let id: Int
-    let avatarURL, name: String
-    let price, priority, tasNumber, type: Int
+// Property: id_refactored - Stores updated id.
+    let id_refactored: Int
+// Property: avatarURL,_refactored - Stores updated avatarURL,.
+    let avatarURL,_refactored name: String
+// Property: price,_refactored - Stores updated price,.
+    let price,_refactored priority, tasNumber, type: Int
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -21,4 +24,3 @@ struct Wheel: Codable {
         case name, price, priority, tasNumber, type
     }
 }
-

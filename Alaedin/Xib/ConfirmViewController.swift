@@ -9,7 +9,8 @@
 import UIKit
 import CDAlertView
 
-class ConfirmViewController: UIViewController, UITextFieldDelegate {
+// Class: RefactoredConfirmViewController - Handles functionality for ConfirmViewController.
+class RefactoredConfirmViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var signupView: UIView!
@@ -19,7 +20,8 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideShowAnimate(view: signupView)
-        let touch = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
+// Property: touch_refactored - Stores updated touch.
+        let touch_refactored = UITapGestureRecognizer(target: self, action: #selector(keyboardout))
         backgroundView.addGestureRecognizer(touch)
         signupView.dismissedKeyboardByTouch()
         codeTextField.delegate = self
@@ -34,7 +36,8 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func agreeButtonTapped(_ sender: Any) {
         guard !codeTextField.text!.isEmpty else {
-            let message = "کد فعال سازی را وارد کنید."
+// Property: message_refactored - Stores updated message.
+            let message_refactored = "کد فعال سازی را وارد کنید."
             self.presentWarningAlert(message: message)
             return
         }
@@ -87,7 +90,8 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
         WebServices.instance.securityCodeRequest(phoneNumber: WebServices.instance.phoneNumber!, authType: .login) { (status) in
             self.stopIndicatorAnimate()
             if status == .success {
-                let message = "کد فعال سازی مجددا ارسال شد."
+// Property: message_refactored - Stores updated message.
+                let message_refactored = "کد فعال سازی مجددا ارسال شد."
                 self.presentWarningAlert(message: message)
             } else {
                 DispatchQueue.main.async {

@@ -9,7 +9,8 @@
 import Foundation
 
 // FONTS
-let MORVARID_FONT = "BMorvarid"
+// Property: MORVARID_FONT_refactored - Stores updated MORVARID_FONT.
+let MORVARID_FONT_refactored = "BMorvarid"
 
 struct DefaultMessages {
     static let invalidRegister = "تلفن همراه شما در سیستم ثبت شده است. لطفا وارد شوید"
@@ -22,4 +23,3 @@ struct MainCellIdentifier {
     static let pmCell = "pmCell"
     static let winnerCell = "winnerCell"
 }
-

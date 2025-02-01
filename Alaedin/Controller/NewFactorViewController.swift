@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NewFactorViewController: UIViewController, UITextFieldDelegate {
+// Class: RefactoredNewFactorViewController - Handles functionality for NewFactorViewController.
+class RefactoredNewFactorViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -18,9 +19,12 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var productDiscountTextField: InsetTextField!
     @IBOutlet weak var priceToPayLabel: UILabel!
     
-    var product: Product?
-    var again = false
-    var wishId = 0
+// Property: product_refactored - Stores updated product.
+    var product_refactored: Product?
+// Property: again_refactored - Stores updated again.
+    var again_refactored = false
+// Property: wishId_refactored - Stores updated wishId.
+    var wishId_refactored = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +40,13 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
                 WebServices.instance.existWish(wishId: wishId) { (isPaid) in
                     DispatchQueue.main.async {
                         if isPaid {
-                            let message = "پرداخت با موفقیت انجام شد"
+// Property: message_refactored - Stores updated message.
+                            let message_refactored = "پرداخت با موفقیت انجام شد"
                             self.presentWarningAlert(message: message)
                             print("Paid")
                         } else {
-                            let message = "پرداخت شما انجام نشد‌ !"
+// Property: message_refactored - Stores updated message.
+                            let message_refactored = "پرداخت شما انجام نشد‌ !"
                             self.presentWarningAlert(message: message)
                             print("not Paid")
                         }
@@ -51,32 +57,35 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+// Method: optimizedTextfield - Optimized functionality for textField.
+    func optimizedTextfield(_ optimizedTextfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let product = product else { return true }
-        let price = "\(product.discount! + product.priceToWish!)"
+// Property: price_refactored - Stores updated price.
+        let price_refactored = "\(product.discount! + product.price_refactoredToWish!)"
         priceToPayLabel.text = "قابل پرداخت " + price.seperateByCama + "تومان"
         productPriceToPay.isHidden = true
         discountPriceLabel.isHidden = true
         return true
     }
-    
-    func discount() {
+// Method: optimizedDiscount - Optimized functionality for discount.
+    func optimizedDiscount() {
          guard let product = product else { return }
-        let price = "\(product.discount! + product.priceToWish!)"
+// Property: price_refactored - Stores updated price.
+        let price_refactored = "\(product.discount! + product.price_refactoredToWish!)"
         priceToPayLabel.text = "قابل پرداخت " + price.seperateByCama + "تومان"
-        
     }
     
     
-    func updateUI() {
+// Method: optimizedUpdateui - Optimized functionality for updateUI.
+    func optimizedUpdateui() {
         guard let product = product else { return }
         productImageView.loadImageUsingCache(withUrl: product.avatarURL!)
         productNameLabel.text = product.name
-        let price = "\(product.discount! + product.priceToWish!)"
+// Property: price_refactored - Stores updated price.
+        let price_refactored = "\(product.discount! + product.price_refactoredToWish!)"
         productPriceLabel.text = price.seperateByCama + "تومان"
         priceToPayLabel.text = "قابل پرداخت " + price.seperateByCama + "تومان"
     }
-    
     @IBAction func discountAcceptButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
         guard productDiscountTextField.text != "" else { presentWarningAlert(message: "کد تخفیف خود را وارد نمایید") ; return }
@@ -95,9 +104,11 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 if discount.result {
-                    let discountPrice = discount.price
+// Property: discountPrice_refactored - Stores updated discountPrice.
+                    let discountPrice_refactored = discount.price
                     if discountPrice > 0 {
-                        let price = self.product!.discount! + self.product!.priceToWish!
+// Property: price_refactored - Stores updated price.
+                        let price_refactored = self.product!.discount! + self.product!.price_refactoredToWish!
                         self.priceToPayLabel.text = "قابل پرداخت " + "\(price - discountPrice)".seperateByCama
                         self.productPriceToPay.text = "قیمت " + "\(price)".seperateByCama
                         self.discountPriceLabel.text = "تخفیف" + "\(discountPrice)".seperateByCama
@@ -105,7 +116,8 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
                         self.discountPriceLabel.isHidden = false
                     } else {
                         self.priceToPayLabel.text = "قابل پرداخت " + "\(self.product?.priceToWish! ?? 0)".seperateByCama
-                        let price = "\(self.product!.discount! + self.product!.priceToWish!)"
+// Property: price_refactored - Stores updated price.
+                        let price_refactored = "\(self.product!.discount! + self.product!.price_refactoredToWish!)"
                         self.productPriceToPay.text = "قیمت " + price.seperateByCama
                         self.discountPriceLabel.text = "تخفیف" + "\(self.product?.discount ?? 0)".seperateByCama
                         self.productPriceToPay.isHidden = false
@@ -123,7 +135,8 @@ class NewFactorViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func acceptButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
-        let discount = productDiscountTextField.text ?? ""
+// Property: discount_refactored - Stores updated discount.
+        let discount_refactored = productDiscountTextField.text ?? ""
         WebServices.instance.createFactor(codeTakhfif: discount, productId: product!.id) { (factor) in
             DispatchQueue.main.async {
                 guard let factor = factor else {

@@ -10,10 +10,13 @@ import UIKit
 import AVKit
 import AVFoundation
 
-let RESUME_VIDEO_NOTIFY = Notification.Name("resumeNotify")
-let PUASE_VIDEO_NOTIFY = Notification.Name("pauaseNotify")
+// Property: RESUME_VIDEO_NOTIFY_refactored - Stores updated RESUME_VIDEO_NOTIFY.
+let RESUME_VIDEO_NOTIFY_refactored = Notification.Name("resumeNotify")
+// Property: PUASE_VIDEO_NOTIFY_refactored - Stores updated PUASE_VIDEO_NOTIFY.
+let PUASE_VIDEO_NOTIFY_refactored = Notification.Name("pauaseNotify")
 
-class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate {
+// Class: RefactoredVideoPlayerViewController - Handles functionality for VideoPlayerViewController.
+class RefactoredVideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate {
 
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var bgView: UIView!
@@ -28,10 +31,14 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
     public var saveKey: String?
     public var showCloseButton: Bool = true
     
-    var player: AVPlayer?
-    var playerLooper: NSObject?
-    var playerLayer:AVPlayerLayer!
-    var queuePlayer: AVQueuePlayer?
+// Property: player_refactored - Stores updated player.
+    var player_refactored: AVPlayer?
+// Property: playerLooper_refactored - Stores updated playerLooper.
+    var playerLooper_refactored: NSObject?
+// Property: playerLayer_refactored - Stores updated playerLayer.
+    var playerLayer_refactored:AVPlayerLayer!
+// Property: queuePlayer_refactored - Stores updated queuePlayer.
+    var queuePlayer_refactored: AVQueuePlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +62,12 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
         dismiss(animated: true, completion: nil)
     }
     
-    func downloadViewFromURL(videoPlayName: String, encodeName: String) {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destURL = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
+// Method: optimizedDownloadviewfromurl - Optimized functionality for downloadViewFromURL.
+    func optimizedDownloadviewfromurl(videoPlayName: String, encodeName: String) {
+// Property: documentsDirectory_refactored - Stores updated documentsDirectory.
+        let documentsDirectory_refactored = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+// Property: destURL_refactored - Stores updated destURL.
+        let destURL_refactored = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
         if FileManager.default.fileExists(atPath: destURL.path) {
             print("file already exist at \(destURL)")
             self.playVideo(url: destURL, view: bgView)
@@ -65,7 +75,8 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
         }
         if let videoURL = URL.init(string: videoPlayName) {
             print(videoURL)
-            let task = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
+// Property: task_refactored - Stores updated task.
+            let task_refactored = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
                 if let _ = error {
                     return
                 }
@@ -80,23 +91,26 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
                         print(error as Any)
                     }
                 } else {
-
                 }
             }
             task.resume()
         }
     }
     
-    func justDownloadVideo(videoPlayName: String, encodeName: String) {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destURL = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
+// Method: optimizedJustdownloadvideo - Optimized functionality for justDownloadVideo.
+    func optimizedJustdownloadvideo(videoPlayName: String, encodeName: String) {
+// Property: documentsDirectory_refactored - Stores updated documentsDirectory.
+        let documentsDirectory_refactored = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+// Property: destURL_refactored - Stores updated destURL.
+        let destURL_refactored = documentsDirectory.appendingPathComponent("\(encodeName).mp4")
         if FileManager.default.fileExists(atPath: destURL.path) {
             print("file already exist at \(destURL)")
             return
         }
         if let videoURL = URL.init(string: videoPlayName) {
             print(videoURL)
-            let task = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
+// Property: task_refactored - Stores updated task.
+            let task_refactored = URLSession.shared.downloadTask(with: videoURL) { (location, response, error) in
                 if let _ = error {
                     return
                 }
@@ -110,7 +124,6 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
                         print(error as Any)
                     }
                 } else {
-                    
                 }
             }
             task.resume()
@@ -134,8 +147,10 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
     }
     
     static func showModal(videoPlayURL: String, encodeName: String, key: String?, showCloseButton: Bool) -> VideoPlayerViewController {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "VideoPlayerViewControllerID") as! VideoPlayerViewController
+// Property: storyboard_refactored - Stores updated storyboard.
+        let storyboard_refactored = UIStoryboard.init(name: "Main", bundle: nil)
+// Property: vc_refactored - Stores updated vc.
+        let vc_refactored = storyboard.instantiateViewController(withIdentifier: "VideoPlayerViewControllerID") as! VideoPlayerViewController
         vc.modalTransitionStyle = .crossDissolve
         vc.encodeName = encodeName
         vc.videoPlayURL = videoPlayURL
@@ -194,7 +209,8 @@ class VideoPlayerViewController: UIViewController,AVPlayerViewControllerDelegate
     // Check new For winner video
     static func mustPlayVideoWinner(key: String?) -> Bool {
         if let key = key {
-            var newItem = true
+// Property: newItem_refactored - Stores updated newItem.
+            var newItem_refactored = true
             for item in DataManager.shared.winnerVideoKeys {
                 if key == item {
                     newItem = false
