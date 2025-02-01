@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="alaedin_font.ttf">
+            <string>BMorvarid</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Alaedin" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="cz5-qT-gAK" id="zOt-xM-CcX"/>
+                <outlet property="boxView" destination="Xm6-ew-Jlc" id="frS-2N-Hcp"/>
+                <outlet property="charkhImg" destination="sZ7-AK-DeS" id="VAb-X6-Zlw"/>
+                <outlet property="exitImgView" destination="Qud-p1-xFB" id="Y5H-JL-zZ4"/>
+                <outlet property="loginButton" destination="PwC-ak-CEO" id="YZz-Ly-jhV"/>
+                <outlet property="logoutStackView" destination="Tfw-Mf-dT3" id="FCv-SL-D98"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="imgsView" destination="V5M-yb-mIh" collectionClass="NSMutableArray" id="Hbq-48-7cb"/>
+                <outletCollection property="imgsView" destination="M8B-sS-ueK" collectionClass="NSMutableArray" id="mCr-Zg-wjY"/>
+                <outletCollection property="imgsView" destination="Eky-Gl-w8H" collectionClass="NSMutableArray" id="Yar-2e-ggP"/>
+                <outletCollection property="imgsView" destination="vo0-8j-4dM" collectionClass="NSMutableArray" id="9F4-8h-lcX"/>
+                <outletCollection property="socialButtons" destination="F6j-2f-6Rg" collectionClass="NSMutableArray" id="t2b-9g-Jzd"/>
+                <outletCollection property="socialButtons" destination="N4p-Bu-LW6" collectionClass="NSMutableArray" id="ofj-Qz-L7x"/>
+                <outletCollection property="socialButtons" destination="VXm-8p-tXw" collectionClass="NSMutableArray" id="asC-xX-QPM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-qT-gAK">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xm6-ew-Jlc">
+                    <rect key="frame" x="10" y="134" width="300" height="280"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup_large" translatesAutoresizingMaskIntoConstraints="NO" id="ORc-7W-xu5">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="280"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sound_icon" translatesAutoresizingMaskIntoConstraints="NO" id="vo0-8j-4dM">
+                            <rect key="frame" x="46" y="52" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="85b-fo-UNg"/>
+                                <constraint firstAttribute="height" constant="22" id="Dyu-al-JlY"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="منو" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0i-Bm-U2z">
+                            <rect key="frame" x="138.5" y="10" width="23" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="NlD-kO-Z5d"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="20"/>
+                            <color key="textColor" red="0.94595164060592651" green="0.73248416185379028" blue="0.35674816370010376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gTE-nm-wjg">
+                            <rect key="frame" x="76" y="52" width="180" height="131"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-S7-kCa">
+                                    <rect key="frame" x="82" y="0.0" width="98" height="32"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwC-ak-CEO">
+                                            <rect key="frame" x="0.0" y="0.0" width="68" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="RBb-92-k10"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="14"/>
+                                            <state key="normal" title="ورود/ثبت نام">
+                                                <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="loginOrRegisterButtonTapped:" destination="-1" eventType="touchUpInside" id="Vho-pt-LQw"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="V5M-yb-mIh">
+                                            <rect key="frame" x="76" y="0.0" width="22" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="ald-iI-0JQ"/>
+                                                <constraint firstAttribute="height" constant="32" id="glX-6t-vjw"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i8N-Qc-xrB">
+                                    <rect key="frame" x="118" y="37" width="62" height="26"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSy-eT-948">
+                                            <rect key="frame" x="0.0" y="0.0" width="32" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="roe-Zg-kxU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="15"/>
+                                            <state key="normal" title="راهنما">
+                                                <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="ManualButtonTapped:" destination="-1" eventType="touchUpInside" id="elz-Hb-cPR"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_icon" translatesAutoresizingMaskIntoConstraints="NO" id="M8B-sS-ueK">
+                                            <rect key="frame" x="40" y="0.0" width="22" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="4yg-81-vQK"/>
+                                                <constraint firstAttribute="height" constant="26" id="Uir-OD-g2W"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wfw-3c-Cwg">
+                                    <rect key="frame" x="101" y="68" width="79" height="32"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CY-SX-ixL">
+                                            <rect key="frame" x="0.0" y="0.0" width="49" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="Gfq-9a-s9w"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="14"/>
+                                            <state key="normal" title="پشتیبانی">
+                                                <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="supportButtonTapped:" destination="-1" eventType="touchUpInside" id="83g-C5-qPT"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="support_icon" translatesAutoresizingMaskIntoConstraints="NO" id="sZ7-AK-DeS">
+                                            <rect key="frame" x="57" y="0.0" width="22" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="u7V-Jg-3Ep"/>
+                                                <constraint firstAttribute="height" constant="32" id="uZl-y8-a2f"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UxE-aZ-2RJ">
+                                    <rect key="frame" x="106" y="105" width="74" height="26"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8v-rG-892">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="slN-eE-Y8Z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="15"/>
+                                            <state key="normal" title="درباره ما">
+                                                <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="wlg-vT-Ms2"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-Gl-w8H">
+                                            <rect key="frame" x="52" y="0.0" width="22" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="5HH-aV-nbj"/>
+                                                <constraint firstAttribute="width" constant="22" id="RH4-W9-S62"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tfw-Mf-dT3">
+                            <rect key="frame" x="186" y="187" width="70" height="26"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiJ-Yw-2Zr">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="9sP-uh-Otx"/>
+                                        <constraint firstAttribute="height" constant="26" id="hxy-Ro-CVR"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="15"/>
+                                    <state key="normal" title="خروج">
+                                        <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="3at-Tt-Oe2"/>
+                                    </connections>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exit_to_app" translatesAutoresizingMaskIntoConstraints="NO" id="Qud-p1-xFB">
+                                    <rect key="frame" x="48" y="0.0" width="22" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="22" id="YOZ-ls-yoC"/>
+                                        <constraint firstAttribute="height" constant="26" id="vP3-F5-o6P"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sub-xp-wVW">
+                            <rect key="frame" x="46" y="52" width="22" height="22"/>
+                            <connections>
+                                <action selector="soundButtonTapped:" destination="-1" eventType="touchUpInside" id="4E2-Da-L6M"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="POe-oH-i4X">
+                            <rect key="frame" x="96" y="222" width="108" height="26"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-2f-6Rg">
+                                    <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="4d0-9c-k8m"/>
+                                        <constraint firstAttribute="width" constant="26" id="wfZ-w0-uRf"/>
+                                    </constraints>
+                                    <state key="normal" image="tel_icon"/>
+                                    <connections>
+                                        <action selector="telButtonTapped:" destination="-1" eventType="touchUpInside" id="1sJ-BX-XPH"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4p-Bu-LW6">
+                                    <rect key="frame" x="41" y="0.0" width="26" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="26" id="VSD-J7-1p6"/>
+                                        <constraint firstAttribute="height" constant="26" id="o05-Np-gib"/>
+                                    </constraints>
+                                    <state key="normal" image="instagram-icon"/>
+                                    <connections>
+                                        <action selector="instagramButtonTapped:" destination="-1" eventType="touchUpInside" id="Nrb-aX-R48"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXm-8p-tXw">
+                                    <rect key="frame" x="82" y="0.0" width="26" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="rlB-Mr-6GD"/>
+                                        <constraint firstAttribute="width" constant="26" id="zJN-eS-tya"/>
+                                    </constraints>
+                                    <state key="normal" image="telegram_icon"/>
+                                    <connections>
+                                        <action selector="telegramButtonTapped:" destination="-1" eventType="touchUpInside" id="Yjr-Hz-ycc"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="gTE-nm-wjg" firstAttribute="leading" secondItem="vo0-8j-4dM" secondAttribute="trailing" constant="8" id="0i8-gY-W1m"/>
+                        <constraint firstItem="ORc-7W-xu5" firstAttribute="top" secondItem="Xm6-ew-Jlc" secondAttribute="top" id="Aw1-aw-9we"/>
+                        <constraint firstItem="vo0-8j-4dM" firstAttribute="leading" secondItem="Xm6-ew-Jlc" secondAttribute="leading" constant="46" id="CQw-hD-dVE"/>
+                        <constraint firstItem="sub-xp-wVW" firstAttribute="bottom" secondItem="vo0-8j-4dM" secondAttribute="bottom" id="DM6-q4-UyI"/>
+                        <constraint firstAttribute="height" constant="280" id="GIb-16-t6k"/>
+                        <constraint firstItem="vo0-8j-4dM" firstAttribute="top" secondItem="gTE-nm-wjg" secondAttribute="top" id="T0q-Je-stg"/>
+                        <constraint firstItem="POe-oH-i4X" firstAttribute="centerX" secondItem="Xm6-ew-Jlc" secondAttribute="centerX" id="WPy-Qo-zlU"/>
+                        <constraint firstItem="Tfw-Mf-dT3" firstAttribute="trailing" secondItem="gTE-nm-wjg" secondAttribute="trailing" id="WiE-Om-j5g"/>
+                        <constraint firstAttribute="trailing" secondItem="gTE-nm-wjg" secondAttribute="trailing" constant="44" id="Wps-v7-26A"/>
+                        <constraint firstItem="sub-xp-wVW" firstAttribute="leading" secondItem="vo0-8j-4dM" secondAttribute="leading" id="WvH-mr-8gB"/>
+                        <constraint firstItem="sub-xp-wVW" firstAttribute="trailing" secondItem="vo0-8j-4dM" secondAttribute="trailing" id="fyQ-xJ-RAU"/>
+                        <constraint firstItem="t0i-Bm-U2z" firstAttribute="centerX" secondItem="Xm6-ew-Jlc" secondAttribute="centerX" id="g6X-gX-rly"/>
+                        <constraint firstAttribute="trailing" secondItem="ORc-7W-xu5" secondAttribute="trailing" id="g8r-8g-99D"/>
+                        <constraint firstItem="t0i-Bm-U2z" firstAttribute="top" secondItem="Xm6-ew-Jlc" secondAttribute="top" constant="10" id="i8Q-t7-3TU"/>
+                        <constraint firstItem="ORc-7W-xu5" firstAttribute="leading" secondItem="Xm6-ew-Jlc" secondAttribute="leading" id="kte-bm-nBg"/>
+                        <constraint firstItem="gTE-nm-wjg" firstAttribute="top" secondItem="t0i-Bm-U2z" secondAttribute="bottom" constant="20" id="mry-Gv-N0j"/>
+                        <constraint firstAttribute="bottom" secondItem="ORc-7W-xu5" secondAttribute="bottom" id="num-7p-QPZ"/>
+                        <constraint firstAttribute="width" constant="300" id="rHn-2r-oKX"/>
+                        <constraint firstItem="sub-xp-wVW" firstAttribute="top" secondItem="vo0-8j-4dM" secondAttribute="top" id="rcA-Qr-0mW"/>
+                        <constraint firstAttribute="bottom" secondItem="POe-oH-i4X" secondAttribute="bottom" constant="32" id="xZt-Pc-4Gt"/>
+                        <constraint firstItem="Tfw-Mf-dT3" firstAttribute="top" secondItem="gTE-nm-wjg" secondAttribute="bottom" constant="4" id="zCZ-cN-hea"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cz5-qT-gAK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="198-Lm-b49"/>
+                <constraint firstItem="Xm6-ew-Jlc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-10" id="7Xh-I2-Mbu"/>
+                <constraint firstItem="Xm6-ew-Jlc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JGJ-4R-5cJ"/>
+                <constraint firstItem="cz5-qT-gAK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hz9-c9-Git"/>
+                <constraint firstAttribute="bottom" secondItem="cz5-qT-gAK" secondAttribute="bottom" id="tBF-LA-WTS"/>
+                <constraint firstAttribute="trailing" secondItem="cz5-qT-gAK" secondAttribute="trailing" id="xuQ-nJ-lKY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="52.5" y="48.591549295774648"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="exit_to_app" width="48" height="48"/>
+        <image name="info_icon" width="32" height="32"/>
+        <image name="instagram-icon" width="32" height="32"/>
+        <image name="popup_large" width="1913" height="1478"/>
+        <image name="question_icon" width="32" height="32"/>
+        <image name="sound_icon" width="32" height="30"/>
+        <image name="support_icon" width="32" height="32"/>
+        <image name="tel_icon" width="28" height="28"/>
+        <image name="telegram_icon" width="30" height="30"/>
+        <image name="user_icon" width="32" height="32"/>
+    </resources>
+</document>

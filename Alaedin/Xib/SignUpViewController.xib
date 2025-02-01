@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="alaedin_font.ttf">
+            <string>BMorvarid</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Alaedin" customModuleProvider="target">
+            <connections>
+                <outlet property="bckView" destination="Qnr-j1-6oD" id="2s7-Ip-g1h"/>
+                <outlet property="inView" destination="cQE-vA-IJ8" id="Ecq-Zm-D1v"/>
+                <outlet property="phoneTextField" destination="9TD-JO-pI1" id="Uaw-z2-GXv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qnr-j1-6oD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="MB2-O4-vK4"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQE-vA-IJ8">
+                    <rect key="frame" x="0.0" y="92" width="320" height="320"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup_xlarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-67-GKW">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اطلاعات ورود" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8H-Ze-mw2">
+                            <rect key="frame" x="133.5" y="16" width="53.5" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="E1s-EQ-9yY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="13"/>
+                            <color key="textColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="شماره همراه را وارد کنید" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9TD-JO-pI1" customClass="InsetTextField" customModule="Alaedin" customModuleProvider="target">
+                            <rect key="frame" x="40" y="126" width="240" height="30"/>
+                            <color key="backgroundColor" red="0.13662403819999999" green="0.051442734900000002" blue="0.011755017560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="8D2-ag-xTh"/>
+                            </constraints>
+                            <color key="textColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button_tow" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-hQ-w9I">
+                            <rect key="frame" x="112.5" y="190" width="95" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="hn2-B3-fKo"/>
+                                <constraint firstAttribute="width" constant="95" id="u4U-XX-aiG"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIl-Yl-qOR">
+                            <rect key="frame" x="112.5" y="190" width="95" height="50"/>
+                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="16"/>
+                            <state key="normal" title="ورود">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="mG9-32-kx6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjD-Pw-sfS">
+                            <rect key="frame" x="66.5" y="164" width="187" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="DGO-Yg-ry7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="BMorvarid" family="B Morvarid" pointSize="11"/>
+                            <state key="normal" title="اگر در چراغ جادو حساب کاربری دارید  وارد شوید">
+                                <color key="titleColor" red="0.94595164060000003" green="0.73248416189999999" blue="0.35674816370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9TD-JO-pI1" firstAttribute="top" secondItem="a8H-Ze-mw2" secondAttribute="bottom" constant="90" id="1on-CJ-3Tv"/>
+                        <constraint firstItem="a8H-Ze-mw2" firstAttribute="centerX" secondItem="cQE-vA-IJ8" secondAttribute="centerX" id="4LI-uM-YWM"/>
+                        <constraint firstAttribute="height" constant="320" id="AM6-K6-lEF"/>
+                        <constraint firstItem="9TD-JO-pI1" firstAttribute="leading" secondItem="Tag-XQ-Qno" secondAttribute="leading" constant="40" id="Cek-66-tVc"/>
+                        <constraint firstItem="LjD-Pw-sfS" firstAttribute="centerX" secondItem="cQE-vA-IJ8" secondAttribute="centerX" id="G9x-3d-zpL"/>
+                        <constraint firstItem="AIl-Yl-qOR" firstAttribute="bottom" secondItem="Ndk-hQ-w9I" secondAttribute="bottom" id="KRT-TP-8mo"/>
+                        <constraint firstAttribute="trailing" secondItem="Zhq-67-GKW" secondAttribute="trailing" id="MBd-78-bEp"/>
+                        <constraint firstItem="Zhq-67-GKW" firstAttribute="leading" secondItem="cQE-vA-IJ8" secondAttribute="leading" id="Vdg-xb-shU"/>
+                        <constraint firstItem="AIl-Yl-qOR" firstAttribute="top" secondItem="Ndk-hQ-w9I" secondAttribute="top" id="Wmf-1p-Tly"/>
+                        <constraint firstItem="a8H-Ze-mw2" firstAttribute="top" secondItem="cQE-vA-IJ8" secondAttribute="top" constant="16" id="Xml-Tm-xLj"/>
+                        <constraint firstItem="AIl-Yl-qOR" firstAttribute="top" secondItem="LjD-Pw-sfS" secondAttribute="bottom" id="Y8K-6K-I7M"/>
+                        <constraint firstItem="Ndk-hQ-w9I" firstAttribute="centerX" secondItem="cQE-vA-IJ8" secondAttribute="centerX" id="aa8-qe-miF"/>
+                        <constraint firstAttribute="width" constant="320" id="cnR-3P-02P"/>
+                        <constraint firstItem="Zhq-67-GKW" firstAttribute="top" secondItem="cQE-vA-IJ8" secondAttribute="top" id="dRC-Bq-8Rx"/>
+                        <constraint firstItem="LjD-Pw-sfS" firstAttribute="top" secondItem="9TD-JO-pI1" secondAttribute="bottom" constant="8" id="rBJ-Ro-s9n"/>
+                        <constraint firstItem="AIl-Yl-qOR" firstAttribute="leading" secondItem="Ndk-hQ-w9I" secondAttribute="leading" id="sS3-eb-Vb9"/>
+                        <constraint firstItem="Tag-XQ-Qno" firstAttribute="trailing" secondItem="9TD-JO-pI1" secondAttribute="trailing" constant="40" id="uz1-Xh-Si8"/>
+                        <constraint firstAttribute="bottom" secondItem="Zhq-67-GKW" secondAttribute="bottom" id="vxC-oO-jxd"/>
+                        <constraint firstItem="AIl-Yl-qOR" firstAttribute="trailing" secondItem="Ndk-hQ-w9I" secondAttribute="trailing" id="zc0-Qc-pxe"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Tag-XQ-Qno"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Qnr-j1-6oD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0SS-bg-pQN"/>
+                <constraint firstAttribute="trailing" secondItem="Qnr-j1-6oD" secondAttribute="trailing" id="JiL-FY-RUc"/>
+                <constraint firstItem="cQE-vA-IJ8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Nco-BE-Qk4"/>
+                <constraint firstItem="cQE-vA-IJ8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-32" id="UTT-Dg-CWL"/>
+                <constraint firstAttribute="bottom" secondItem="Qnr-j1-6oD" secondAttribute="bottom" id="YIY-vq-FWa"/>
+                <constraint firstItem="Qnr-j1-6oD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n4P-63-I8b"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="208.125" y="153.16901408450704"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="button_tow" width="144" height="71.25"/>
+        <image name="popup_xlarge" width="1913" height="1841"/>
+    </resources>
+</document>
