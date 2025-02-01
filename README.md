@@ -63,13 +63,13 @@ open Alaedin.xcworkspace
 Here are some screenshots from the application:
 
 ### Home Screen
-![Home Screen](./images/E2F109FC-F508-4CE6-BCC3-83F75E69954E.jpeg)
+![Home Screen](./images/E2F109FC-F508-4CE6-BCC3-83F75E69954E.jpg)
 
 ### Support Page
-![Support Page](./images/AB42CE67-2E76-4164-9920-512AB15A39DA.jpeg)
+![Support Page](./images/AB42CE67-2E76-4164-9920-512AB15A39DA.png)
 
 ### My Wishes
-![My Wishes](./images/1DC580E9-35E4-40B7-920E-6B875584BF33.jpeg)
+![My Wishes](./images/B85862E8-147A-4A9C-9474-F1B5D7FDD34A.png)
 
 ### Main Menu
 ![Main Menu](./images/B85862E8-147A-4A9C-9474-F1B5D7FDD34A.jpeg)
@@ -94,8 +94,7 @@ Here are some screenshots from the application:
 5. **Submit a Pull Request** for review.
 
 ## Developers 💡
-- 👤 **Developer Name 1** - [GitHub](https://github.com/yourprofile)
-- 👤 **Developer Name 2** - [GitHub](https://github.com/yourprofile)
+- 👤 **Developer Name 1** - [GitHub](https://github.com/sinakhanjani)
 
 ## License 📜
 This project is licensed under the **MIT License**. [More Details](LICENSE).
