@@ -1,63 +1,18 @@
-# 🎩 Alaedin iOS Game
 
-## About the Project
-**Alaedin Game** is an engaging mobile application where users can make wishes and earn points by inviting their friends. Inspired by the legend of Aladdin’s magical lamp, this game features a **pyramid-based scoring system** that rewards active participation.
+# Alaedin Demo
 
-## Features ✨
-- **Developed with Swift** for iOS devices
-- **Advanced computational algorithms** for user scoring management
-- **Invite friends to earn more points**
-- **Firebase integration** for data management
-- **Modern UI and smooth animations**
+## Overview
+Alaedin is a demo application created to showcase its UI/UX design and functional capabilities in delivering an elegant and seamless user experience. This demo simulates a real-world application environment while providing a glimpse of its potential as a full-fledged product.
 
-## Prerequisites 📌
-Before running the project, ensure you have the following tools installed:
-- [Xcode](https://developer.apple.com/xcode/) (version 14+ recommended)
-- [CocoaPods](https://cocoapods.org/) for dependency management
-- A **Firebase** account to configure necessary services (set up the `GoogleService-Info.plist` file)
+## Key Features
+- **Modern UI/UX Design**: Intuitive and visually appealing interface for a user-friendly experience.
+- **Dynamic Interactions**: Smooth navigation and engaging features that enhance usability.
+- **Responsive Design**: Optimized for various device sizes to ensure consistent performance.
+- **Customizable Components**: Demonstrates flexibility in adapting to different use cases.
 
-## Installation and Setup 🚀
-### 1. Clone the Repository
-```sh
-git clone https://github.com/YourUsername/Alaedin-iOS.git
-cd Alaedin-iOS
-```
+## Purpose
+This project is solely for demonstration purposes, showcasing the design and development expertise of the team. It is not intended for production use and does not include live integrations or backend services.
 
-### 2. Install Dependencies
-```sh
-pod install
-```
-
-### 3. Open the Project in Xcode
-```sh
-open Alaedin.xcworkspace
-```
-
-### 4. Run on Simulator or Real Device
-1. Select your desired device from Xcode’s menu.
-2. Click **Run (⌘ + R)** to launch the application.
-
-## Project Structure 📂
-```
-📂 Alaedin-iOS
- ┣ 📂 Alaedin
- ┃ ┣ 📂 Views        # UI screens and components
- ┃ ┣ 📂 Models       # Data models
- ┃ ┣ 📂 Controllers  # Business logic and controllers
- ┃ ┣ 📄 AppDelegate.swift  # Main application delegate
- ┃ ┣ 📄 Info.plist         # Application settings
- ┃ ┣ 📄 GoogleService-Info.plist  # Firebase configuration
- ┣ 📂 Pods           # Installed dependencies via CocoaPods
- ┣ 📄 Podfile        # Dependency management file
- ┣ 📄 README.md      # Project documentation
- ┗ 📄 .gitignore     # Ignored files in Git
-```
-
-## Project Dependencies 📦
-- **Firebase SDK** (Authentication, Firestore)
-- **CocoaPods** for dependency management
-- **AVFoundation** for sound effects and media handling
-- **UIKit** and **SwiftUI** for user interface
 
 ## Screenshots 📸
 Here are some screenshots from the application:
@@ -77,27 +32,15 @@ Here are some screenshots from the application:
 ### Splash View
 ![Splash View](./images/2842297D-D568-4907-92BB-28E59F85356C.jpeg)
 
-## Contribution Guide 👨‍💻
-1. **Fork** the repository  
-2. **Create a new feature branch:**  
-   ```sh
-   git checkout -b feature/your-feature
-   ```
-3. **Commit your changes:**  
-   ```sh
-   git commit -m "Added a new feature"
-   ```
-4. **Push to GitHub:**  
-   ```sh
-   git push origin feature/your-feature
-   ```
-5. **Submit a Pull Request** for review.
 
-## Developers 💡
-- 👤 **Developer Name 1** - [GitHub](https://github.com/sinakhanjani)
+## Demo Instructions
+1. Clone the repository: `git clone https://github.com/sinakhanjani/alaedin-demo.git`
+2. Open the project in your preferred editor.
+3. Explore the design and features.
 
-## License 📜
-This project is licensed under the **MIT License**. [More Details](LICENSE).
+## Feedback
+We value your feedback! Please feel free to share your thoughts or suggestions.
 
 ---
-🔥 **Make a wish in Alaedin and achieve your dreams!** 🌟
+
+Thank you for exploring the Alaedin demo!
