@@ -1,18 +1,27 @@
+# 🧞‍♂️ Alaedin - The Magic Lamp Game
 
-# Alaedin Demo
+**Alaedin** is a fun and exciting game that transports you into the magical world of the Genie. In this game, you need to share your unique referral link with friends to help you reach your wish faster.
 
-## Overview
-Alaedin is a demo application created to showcase its UI/UX design and functional capabilities in delivering an elegant and seamless user experience. This demo simulates a real-world application environment while providing a glimpse of its potential as a full-fledged product.
+## 📌 Game Features
 
-## Key Features
-- **Modern UI/UX Design**: Intuitive and visually appealing interface for a user-friendly experience.
-- **Dynamic Interactions**: Smooth navigation and engaging features that enhance usability.
-- **Responsive Design**: Optimized for various device sizes to ensure consistent performance.
-- **Customizable Components**: Demonstrates flexibility in adapting to different use cases.
+- **Pyramid System**: The more friends you invite, the faster you can reach your goal. 🔗
+- **Prize Selection**: After choosing a prize from the Genie, you will get closer to your wish. 🎁
+- **Unique Referral Link**: You receive a personal link to share with your friends. 📨
+- **Simple User Interface**: Easy-to-use interface for a smooth experience. 🖥️
 
-## Purpose
-This project is solely for demonstration purposes, showcasing the design and development expertise of the team. It is not intended for production use and does not include live integrations or backend services.
+## 🚀 How to Play
 
+1. **Sign Up**: First, sign up in the **Alaedin** app.
+2. **Choose a Prize**: Pick a prize from the options given by the Genie.
+3. **Get Your Referral Link**: After selecting your prize, a unique referral link will be shown to you.
+4. **Share the Link with Friends**: Share your unique link with your friends so they can join the game.
+5. **Achieve Your Wish**: The more friends join the game through your link, the faster you’ll reach your wish.
+6. 
+## ⚡ Key Points
+
+- **No editing of messages required**: The messages from the Genie should be sent exactly as they are.
+- **Pyramid System**: Inviting friends and increasing your referrals will help you achieve your goal faster.
+- The game is online, so an internet connection is required.
 
 ## Screenshots 📸
 Here are some screenshots from the application:
@@ -32,15 +41,8 @@ Here are some screenshots from the application:
 ### Splash View
 ![Splash View](./images/2842297D-D568-4907-92BB-28E59F85356C.jpeg)
 
+## 📣 Important Notice
 
-## Demo Instructions
-1. Clone the repository: `git clone https://github.com/sinakhanjani/alaedin-demo.git`
-2. Open the project in your preferred editor.
-3. Explore the design and features.
+The **Alaedin** game follows a pyramid system. The more friends you invite, the faster you will achieve your wish. The game is designed for fun and to earn prizes.
 
-## Feedback
-We value your feedback! Please feel free to share your thoughts or suggestions.
-
----
-
-Thank you for exploring the Alaedin demo!
+**Your wishes are within reach!** ✨
